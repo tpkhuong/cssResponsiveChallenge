@@ -1,0 +1,40 @@
+/* INSTRUCTIONS
+ *
+ * 1) Limit the total width of
+ *    the .intro-conent to about half
+ *    of it's parent
+ *
+ * 2) Stop the text from overflowing
+ *    out the bottom at small screen
+ *    widths
+ *
+ * You may modify the HTML if needed
+ *
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+}
+
+.title {
+  font-size: 3rem;
+  max-width: 12ch;
+}
+
+.container {
+  background-color: #23424a;
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 5em;
+}
+
+p {
+  background-color: green;
+  width: clamp(300px, 50%, 40rem);
+}
