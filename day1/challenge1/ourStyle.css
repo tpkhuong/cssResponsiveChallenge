@@ -36,5 +36,10 @@ body {
 
 p {
   background-color: green;
+  /* use max-width to make it responsive 
+  max-width override flex-basis
+  */
+  max-width: 40em;
+  /* min, ideal, max */
   width: clamp(300px, 50%, 40rem);
 }
