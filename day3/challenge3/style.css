@@ -1,0 +1,97 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"); */
+
+:root {
+  --clr-primary: #23424a;
+  --clr-btn: #38cfd9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto";
+  line-height: 1.5;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* utilities */
+
+[href="#hero"] {
+  display: inline-block;
+  position: absolute;
+  /* outline: 1px solid red; */
+  padding: 0.5em 0.5em;
+  color: var(--clr-primary);
+  background-color: white;
+  /* border-radius: 100vw; */
+  transform: translateY(-100%);
+}
+
+[href="#hero"]:focus {
+  transform: translateY(0);
+  border: 0.5em dotted black;
+}
+
+.hero {
+  background-color: var(--clr-primary);
+}
+
+.container {
+  max-width: 53.125em;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+}
+
+h1,
+p {
+  max-width: 40rem;
+}
+
+.container p:first-of-type {
+  margin-top: 2em;
+  font-weight: 100;
+}
+
+[class*="bg-"] {
+  background: var(--bg, var(--clr-btn));
+  color: var(--fg, var(--primary));
+}
+
+.bg-dark {
+  --fg: white;
+  --bg: var(var(--clr-primary));
+}
+
+.btn {
+  --bg: var(--clr-primary);
+  margin-top: 1em;
+  background: var(--clr-btn);
+  color: var(--bg, white);
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 1em 1.5em;
+  border-radius: 100vw;
+}
