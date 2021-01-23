@@ -34,7 +34,8 @@ img {
 
 /* utilities */
 
-[href="#hero"] {
+[href="#hero"],
+.testing-understanding {
   display: inline-block;
   position: absolute;
   /* outline: 1px solid red; */
