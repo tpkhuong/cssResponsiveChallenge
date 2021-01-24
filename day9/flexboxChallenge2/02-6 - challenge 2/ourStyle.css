@@ -1,0 +1,166 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"); */
+
+:root {
+  --clr-primary: #23424a;
+  --clr-secondary: #87629a;
+  --clr-bg-secondary: #136c72;
+  --clr-btn: #38cfd9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto";
+  line-height: 1.5;
+  /* color: #fff; */
+  font-size: 1.3rem;
+}
+
+img {
+  /* we use max-width: 100% so when we have an img element inside of a div and we want to use flex which means the div will be a flex item
+    the img will shrink and grow as its parent element shrink and grows
+    */
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* utilities */
+
+[href="#hero"],
+.testing-understanding {
+  display: inline-block;
+  position: absolute;
+  /* outline: 1px solid red; */
+  padding: 0.5em 0.5em;
+  color: var(--clr-primary);
+  background-color: white;
+  /* border-radius: 100vw; */
+  transform: translateY(-100%);
+}
+
+[href="#hero"]:focus {
+  transform: translateY(0);
+  border: 0.5em dotted black;
+}
+
+.hero {
+  background-color: var(--clr-primary);
+}
+
+.container {
+  max-width: 53.125em;
+  margin: 0 auto;
+  padding: 3em 1.5em;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+h1,
+p {
+  max-width: 40rem;
+}
+
+.hero__text p:first-of-type {
+  margin-top: 2em;
+  font-weight: 100;
+}
+
+[class*="bg-"] {
+  background: var(--bg, var(--clr-btn));
+  color: var(--fg, var(--primary));
+}
+
+.bg-dark {
+  --fg: white;
+  --bg: var(--clr-primary);
+}
+
+.content-two {
+  --bg: var(--clr-bg-secondary);
+}
+.bg-accent {
+  --fg: var(--third-clr, #000);
+  /* --bg: var(--bg-accent, var(--clr-primary)); */
+}
+
+.hidden {
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.columns > * {
+  flex-basis: 100%;
+}
+
+.columns > * + * {
+  margin-left: 1em;
+}
+
+.col-3 {
+  flex-basis: 62%;
+}
+
+.col-1 {
+  flex-basis: 32%;
+}
+
+.flow-content > * + * {
+  margin-top: 1em;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.text-accent {
+  color: var(--clr-bg-secondary);
+}
+
+.btn {
+  --bg: var(--clr-primary);
+  margin-top: 1em;
+  background: var(--clr-btn);
+  color: var(--bg, white);
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1em 1.5em;
+  border-radius: 100vw;
+}
+
+.text-centered.col-1 {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 2em;
+}
+
+.space-top {
+  padding-top: 1.5em;
+}
+
+[class*="content"] h2 {
+  font-weight: 900;
+}
+/* .content-one h2 {
+  color: var(--clr-secondary);
+} */
