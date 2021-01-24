@@ -29,9 +29,6 @@ body {
 }
 
 img {
-  /* we use max-width: 100% so when we have an img element inside of a div and we want to use flex which means the div will be a flex item
-    the img will shrink and grow as its parent element shrink and grows
-    */
   max-width: 100%;
   display: block;
   height: auto;
@@ -66,17 +63,34 @@ img {
   padding: 3em 0;
 }
 
+.grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+}
+
+.grid div:nth-child(1),
+.grid div:nth-child(2),
+.grid div:nth-child(3) {
+  grid-column: span 2;
+}
+
+.grid div:nth-child(4),
+.grid div:nth-child(5) {
+  grid-column: span 3;
+}
+
 .hero__title {
   font-size: 2.5rem;
   line-height: 1;
 }
 
-h1,
-p {
+h1 {
   max-width: 40rem;
 }
 
-.hero__text p:first-of-type {
+.container p:first-of-type {
   margin-top: 2em;
   font-weight: 100;
 }
@@ -97,22 +111,6 @@ p {
 .bg-accent {
   --fg: var(--third-clr, #000);
   /* --bg: var(--bg-accent, var(--clr-primary)); */
-}
-
-.columns {
-  display: flex;
-}
-
-.columns > * {
-  flex-basis: 100%;
-}
-
-.columns > * + * {
-  margin-left: 1em;
-}
-
-.text-centered {
-  text-align: center;
 }
 
 .btn {
