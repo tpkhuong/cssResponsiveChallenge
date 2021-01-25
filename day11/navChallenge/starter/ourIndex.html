@@ -7,30 +7,42 @@
     <meta name="description" content="Learning Nodejs" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="ourStyle.css" />
+    <link rel="stylesheet" href="ourStyles.css" />
     <title>Flexbox Challenge 1</title>
   </head>
   <body>
     <header role="banner">
-      <section role="region" id="hero" class="hero bg-dark">
-        <article class="container columns">
-          <div class="hero__text col-3">
-            <h1 class="hero__title">
-              Responsive layouts don’t have to be a struggle
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
-            </p>
-            <button class="btn">I want to learn</button>
-          </div>
-          <div class="hero__img col-1">
-            <img src="img/hero-img.jpg" alt="row of skretches" />
-          </div>
-        </article>
-      </section>
+      <nav role="navigation" class="container">
+        <ul class="nav inline-content">
+          <li class="nav__list"><a href="#" class="nav__link">Home</a></li>
+          <li class="nav__list"><a href="#" class="nav__link">About</a></li>
+          <li class="nav__list"><a href="#" class="nav__link">Contact</a></li>
+          <li class="nav__list"><a href="#" class="nav__link">Sign In</a></li>
+          <li class="nav__list">
+            <a href="#" class="nav__link btn-accent">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
     </header>
+    <section role="region" id="hero" class="hero bg-dark">
+      <article class="container columns">
+        <div class="hero__text col-3">
+          <h1 class="hero__title">
+            Responsive layouts don’t have to be a struggle
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam.
+          </p>
+          <button class="btn">I want to learn</button>
+        </div>
+        <div class="hero__img col-1">
+          <img src="img/hero-img.jpg" alt="row of skretches" />
+        </div>
+      </article>
+    </section>
+
     <main role="main">
       <section class="main-content">
         <article class="container columns">
