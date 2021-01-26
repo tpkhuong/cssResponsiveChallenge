@@ -185,23 +185,29 @@ p {
   color: #fff;
 }
 
-[role="navigation"] {
+header[role="banner"] > div.container {
   padding-top: 0;
   padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav {
-  margin: 1em 0;
+.logo {
+  align-self: center;
+  margin-right: 1em;
 }
 
-.nav__list {
+.nav__item {
   list-style: none;
   /* margin: 0; */
   padding: 0;
-  font-size: 1rem;
 }
 
-.nav__list:not(:last-child) .nav__link {
+/* .nav__item:not(:last-child) .nav__link {
+  color: white;
+} */
+
+.nav__link.text-white {
   color: white;
 }
 
@@ -215,6 +221,13 @@ p {
 
 .nav {
   display: flex;
+  /* or we can give it a width: 100% */
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.nav__list {
+  display: flex;
 }
 
 .nav__link.btn-accent {
@@ -225,3 +238,18 @@ p {
 /* .content-one h2 {
   color: var(--clr-secondary);
 } */
+
+/* to get logo and three of the li to the left and two of the li to the right  */
+
+/* we have to declare align-self: center on logo */
+/* give the container that holds the logo and our nav. the nav element holds our 5 links(lis) a display: flex */
+/* our container that hold the two ul. one ul holds three lis and one ul holds two lis. we want to declare width: 100% or give it flex-grow: 1
+so that it takes up the available space.
+*/
+
+/* to get the nav layout of logo on the left the three lis in the middle and two lis on the right*/
+
+.nav__list--primary {
+  margin-left: auto;
+  margin-right: auto;
+}

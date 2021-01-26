@@ -12,17 +12,32 @@
   </head>
   <body>
     <header role="banner">
-      <nav role="navigation" class="container">
-        <ul class="nav inline-content">
-          <li class="nav__list"><a href="#" class="nav__link">Home</a></li>
-          <li class="nav__list"><a href="#" class="nav__link">About</a></li>
-          <li class="nav__list"><a href="#" class="nav__link">Contact</a></li>
-          <li class="nav__list"><a href="#" class="nav__link">Sign In</a></li>
-          <li class="nav__list">
-            <a href="#" class="nav__link btn-accent">Sign Up</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="container">
+        <a class="logo" href="#">
+          <img src="img/logoSecond.svg" alt="" />
+        </a>
+        <nav role="navigation" class="nav">
+          <ul class="nav__list inline-content nav__list--primary">
+            <li class="nav__item">
+              <a href="#" class="nav__link text-white">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link text-white">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link text-white">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav__list inline-content nav__list--secondary">
+            <li class="nav__item">
+              <a href="#" class="nav__link text-white">Sign In</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link btn-accent">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <section role="region" id="hero" class="hero bg-dark">
       <article class="container columns">
