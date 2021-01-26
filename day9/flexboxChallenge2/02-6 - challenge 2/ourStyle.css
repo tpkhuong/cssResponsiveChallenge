@@ -33,6 +33,7 @@ img {
     the img will shrink and grow as its parent element shrink and grows
     */
   max-width: 100%;
+  /* width of 100% will be 100% of its parent's container/element */
   display: block;
   height: auto;
 }
