@@ -1,1 +1,247 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+:root {
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-playfair: "Playfair Display", serif;
+
+  /* small screen font-sizes */
+  --fs-200: 0.75rem;
+  --fs-300: 1rem;
+  --fs-400: 1.125rem;
+  --fs-500: 1.3125rem;
+  --fs-600: 2.25rem;
+  --fs-900: 3.75rem;
+
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --clr-primary: #f3eed9;
+  --clr-secondary: #824936;
+  --clr-tertiary: #222c2a;
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-200: #eef1f6;
+  --clr-neutral-300: #a9afbc;
+  --clr-neutral-400: #737b8c;
+  --clr-neutral-500: #434956;
+  --clr-neutral-900: #020203;
+
+  --spacer: 1em;
+}
+
+/* reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+body {
+  margin: 0;
+  /* figure, dl, and dd have default margin */
+  /* font-weight: 100; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.4;
+  font-size: var(--fs-400);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-fg, var(--clr-neutral-900));
+  font-weight: var(--fw-700);
+  font-size: var(--fs-300);
+}
+
+img {
+  /* using object-fit for images. we have to set a height or a min-height on the image and the width of 100% 
+  exception to the rule of setting a height. we can sometime use it on a child element.
+  */
+  max-width: 100%;
+  /* we use max-width: 100% so when we have an img element inside of a div and we want to use flex which means the div will be a flex item
+    the img will shrink and grow as its parent element shrink and grows
+    */
+  display: block;
+  height: auto;
+}
+
+ul[class],
+li[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 
+maximum width of a “container”
+is 1128px / 16 = 70.5
+
+in the cery first section try setting a min-height
+of 660px / 16 = 41.25 and using what we’ve covered in
+flexbox to center the content vertically
+
+*/
+
+html {
+  padding: 0.5rem;
+}
+
+body {
+  font-family: var(--ff-roboto);
+  font-size: var(--fs-700);
+  line-height: 1.5;
+  /* padding: 0.5rem; */
+}
+
+.flow-content-block > * + * {
+  margin: var(--large-top, 1em) 0 0 0;
+}
+
+.flow-content-inline > * + * {
+  margin: 0 0 0 var(--large-left, 1em);
+}
+
+[class*="bg-"] {
+  background: var(--bg, #fff);
+  color: var(--fg, var(--clr-secondary));
+}
+
+.bg-dark {
+  --bg: var(--clr-tertiary);
+  --fg: var(--clr-primary);
+}
+
+.bg-light {
+  --bg: var(--clr-secondary);
+  --fg: var(--clr-primary);
+}
+
+.columns {
+  display: flex;
+}
+
+.columns > * {
+  flex-basis: 100%;
+}
+
+.columns > * + * {
+  margin-left: 2rem;
+}
+
+[class*="col-"] {
+  flex-basis: var(--flex-col, 100%);
+}
+
+.col-2 {
+  --flex-col: 50%;
+}
+.col-3 {
+  --flex-col: 75%;
+}
+.col-4 {
+  --flex-col: 25%;
+}
+
+/* typography */
+
+.primary-title,
+.section-title {
+  font-family: var(--ff-playfair);
+}
+
+.primary-title {
+  font-size: var(--fs-900);
+}
+
+.primary-title,
+.quality .section-title {
+  color: var(--clr-secondary);
+}
+
+.hero > p:only-of-type {
+  font-size: var(--fs-400);
+  text-transform: uppercase;
+  letter-spacing: 0.7em;
+}
+
+.section-title {
+  font-size: var(--fs-600);
+}
+
+section:not(:first-of-type) p {
+  font-size: var(--fs-500);
+  color: #fff;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+/* general styles */
+
+.hero {
+  background-color: var(--clr-primary);
+  min-height: 41.25em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 70.5em;
+  margin: 0 auto;
+  padding: 5em;
+}
+
+.quality [role="banner"] {
+  margin-bottom: 3rem;
+}
+
+/* .custom [role="banner"] {
+    works
+  --large-top: 2em;
+} */
+
+.dark-text {
+  color: var(--clr-secondary);
+}
+
+.light-text {
+  color: var(--clr-primary);
+}
