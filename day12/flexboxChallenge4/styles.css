@@ -118,7 +118,7 @@ flexbox to center the content vertically
 */
 
 html {
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 body {
@@ -235,7 +235,7 @@ section:not(:first-of-type) p {
 
 .hero {
   background-color: var(--clr-primary);
-  min-height: 41.25em;
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -243,9 +243,9 @@ section:not(:first-of-type) p {
 }
 
 @media screen and (max-width: 38.75em) {
-  .hero {
+  /* .hero {
     padding: 0 1em;
-  }
+  } */
 }
 
 .container {
