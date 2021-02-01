@@ -165,3 +165,43 @@ select {
     background-color: var(--fg, var(--clr-primary));
     color: var(--bg, var(--clr-white));
 }
+
+.nav-toggle{
+    width: 3em;
+    height: 3em;
+    background-color: var(--clr-primary);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger,.hamburger::before,.hamburger::after{
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 4px;
+    background-color: var(--clr-white);
+}
+
+.hamburger{
+    margin: auto;
+    transform: translateY(-6px);
+}
+
+.hamburger::before{
+    transform: translateY(-.3rem);
+}
+
+.hamburger::after{
+    transform: translateY(-1.08rem);
+}
+
+.nav-bar{
+background-color: var(--clr-400);
+}
+
+
+.hero{
+    background-color: var(--clr-300);
+}
