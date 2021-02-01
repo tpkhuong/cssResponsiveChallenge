@@ -201,6 +201,20 @@ select {
 background-color: var(--clr-400);
 }
 
+/* general styles */
+
+
+
+/* navigation */
+
+.nav{
+    color: var(--clr-white);
+}
+
+.nav__link{
+    color: inherit;
+}
+
 
 .hero{
     background-color: var(--clr-300);
