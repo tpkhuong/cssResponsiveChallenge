@@ -15,5 +15,4 @@ function showNavBar({ navElement, clickedOnElement } = ourSelectors()) {
     navElement.classList.toggle("show");
   });
 }
-alert("remove padding from section elements");
 showNavBar();
