@@ -14,10 +14,12 @@
     <header class="header" role="banner">
       <div class="container">
         <section role="region" class="nav-bar">
-          <button class="nav-toggle" aria-label="open or close navigation">
-            <span class="hamburger"></span>
-          </button>
-          <a href="#" class="logo"><img src="logo.svg" alt="CRL logo" /></a>
+          <div class="center-elements">
+            <button class="nav-toggle" aria-label="open or close navigation">
+              <span class="hamburger"></span>
+            </button>
+            <a href="#" class="logo"><img src="logo.svg" alt="CRL logo" /></a>
+          </div>
           <nav role="navigation" class="nav">
             <ul class="nav__list">
               <li class="nav__item"><a href="#" class="nav__link">home</a></li>
@@ -36,127 +38,145 @@
         </section>
       </div>
     </header>
-    <section class="hero" role="banner">
-      <h1 class="title-primary">
-        Responsive layouts don't have to be a struggle
-      </h1>
-      <div class="text-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          officiis dolore corporis, ex voluptatibus eaque.
-        </p>
-        <a href="">I want to learn</a>
+    <section class="hero text-white" role="banner">
+      <div class="container">
+        <h1 class="title-primary">
+          Responsive layouts
+          <span class="highlight">don't have to be a struggle</span>
+        </h1>
+        <div class="text-content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+            officiis dolore corporis, ex voluptatibus eaque.
+          </p>
+          <a href="">I want to learn</a>
+        </div>
       </div>
     </section>
     <main role="main">
-      <section role="region">
-        <div class="selling-point">
-          <h2>Mobile-first</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates
-            odio inventore ea, officiis aliquam vitae.
-          </p>
-        </div>
-        <div class="selling-point">
-          <h2>Efficient</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
-            neque accusamus excepturi est omnis. Ex.
-          </p>
-        </div>
-        <div class="selling-point">
-          <h2>Done right</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem sed
-            dolorem animi dolores veniam cupiditate?
-          </p>
+      <section class="selling-points" role="region">
+        <div class="container">
+          <div class="selling-point">
+            <h2>Mobile-first</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Voluptates odio inventore ea, officiis aliquam vitae.
+            </p>
+          </div>
+          <div class="selling-point">
+            <h2>Efficient</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
+              neque accusamus excepturi est omnis. Ex.
+            </p>
+          </div>
+          <div class="selling-point">
+            <h2>Done right</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+              sed dolorem animi dolores veniam cupiditate?
+            </p>
+          </div>
         </div>
       </section>
       <section role="region">
-        <article class="main-content">
-          <h2 class="secondary-title">It doesn't have to be hard</h2>
-          <p></p>
-          <div class="main-content__img">
-            <img src="finalChallengeImage.jpg" alt="" />
-          </div>
-          <p></p>
-        </article>
-        <aside class="sidebar">
-          <div>
-            <h2 class="sidebar-title">Break it down</h2>
+        <div class="container">
+          <article class="main-content">
+            <h2 class="secondary-title">It doesn't have to be hard</h2>
             <p></p>
-          </div>
-          <div>
-            <h2 class="sidebar-title">Work your way up</h2>
+            <div class="main-content__img">
+              <img src="finalChallengeImage.jpg" alt="" />
+            </div>
             <p></p>
-          </div>
-          <div>
-            <h2 class="sidebar-title">Quality Design</h2>
-            <p></p>
-          </div>
-        </aside>
+          </article>
+          <aside class="sidebar text-white">
+            <div>
+              <h2 class="sidebar-title">Break it down</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                aliquam inventore ratione iure ipsum earum?
+              </p>
+            </div>
+            <div>
+              <h2 class="sidebar-title">Work your way up</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
+                rerum et architecto in eveniet sit!
+              </p>
+            </div>
+            <div>
+              <h2 class="sidebar-title">Quality Design</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
+                rerum et architecto in eveniet sit!
+              </p>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
     <footer role="contentinfo">
-      <section role="region">
-        <h2 class="section-title">just scratching the surface</h2>
-        <article class="footer__nav">
-          <div class="company-info">
-            <h3 class="footer__nav-title">About our company</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non,
-              fugit. Dolor veniam libero ipsam ut.
-            </p>
-          </div>
-          <ul class="footer__nav-list">
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Getting around</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Home</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">About</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Contact</a>
-            </li>
-          </ul>
-          <ul class="footer__nav-list">
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Other things</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Lorem ipsum</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">dolor</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">sit amet</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">consectetur</a>
-            </li>
-          </ul>
-          <ul class="footer__nav-list">
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">And more</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">Lorem ipsum</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">dolor</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">sit amet</a>
-            </li>
-            <li class="footer__nav-item">
-              <a href="#" class="footer__nav-link">consectetur</a>
-            </li>
-          </ul>
-        </article>
+      <section class="footer" role="region">
+        <div class="container">
+          <h2 class="section-title text-white">just scratching the surface</h2>
+          <article class="footer__nav">
+            <div class="company-info">
+              <h3 class="footer__nav-title">About our company</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non,
+                fugit. Dolor veniam libero ipsam ut.
+              </p>
+            </div>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Getting around</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Home</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">About</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Contact</a>
+              </li>
+            </ul>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Other things</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Lorem ipsum</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">dolor</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">sit amet</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">consectetur</a>
+              </li>
+            </ul>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">And more</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Lorem ipsum</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">dolor</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">sit amet</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">consectetur</a>
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
     </footer>
     <script src="app.js"></script>
