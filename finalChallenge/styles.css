@@ -119,6 +119,7 @@ body {
 
 .columns {
   display: flex;
+  flex-flow: column;
 }
 
 .columns > * {
@@ -179,12 +180,17 @@ body {
 
 /* typeography */
 
-.title-primary {
-  font-size: 2rem;
+.title-primary,
+.footer h2 {
+  font-size: 3rem;
 }
 
 .text-white {
   color: var(--clr-white);
+}
+
+.highlight {
+  color: var(--clr-primary);
 }
 
 .selling-point h2,
@@ -194,8 +200,14 @@ ul.footer__nav-list li:first-child a {
   color: var(--clr-primary);
 }
 
-.section-title {
+.section-title,
+.sidebar {
   text-align: center;
+}
+
+.footer__nav p,
+ul.footer__nav-list li:not(:first-child) a {
+  color: lightgray;
 }
 
 p {
@@ -279,7 +291,8 @@ li.nav__item {
   background-color: var(--clr-primary);
 } */
 
-.nav__link.btn {
+.nav__link.btn,
+.text-content .btn {
   padding: 0.3em 0.75em;
   border-radius: 10em;
 }
@@ -319,4 +332,24 @@ a.nav__link.btn:hover {
 
 .selling-points {
   background-color: lightgray;
+}
+
+.text-content .btn {
+  display: inline-block;
+}
+
+.sidebar {
+  margin-top: 1.5em;
+}
+
+.sidebar > div {
+  padding: 2em 1.5em;
+}
+
+.company-info {
+  margin-top: 3em;
+}
+
+.footer__nav-list:first-of-type {
+  margin-top: 3em;
 }
