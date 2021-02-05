@@ -12,7 +12,7 @@ function ourSelectors() {
 
 function showNavBar({ navElement, clickedOnElement } = ourSelectors()) {
   clickedOnElement.addEventListener("click", function actionClick(event) {
-    navElement.classList.toggle("show");
+    navElement.classList.toggle("hidden");
   });
 }
 showNavBar();
