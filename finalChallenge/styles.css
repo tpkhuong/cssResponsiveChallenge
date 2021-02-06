@@ -130,6 +130,15 @@ body {
   margin: 1em 0 0 0;
 }
 
+@media screen and (min-width: 43.75em) {
+  .columns {
+    flex-flow: row;
+  }
+  .columns > * + * {
+    margin: 0 0 0 1em;
+  }
+}
+
 [class*="bg-"] {
   background: var(--bg, var(--clr-white));
   color: var(--fg, #000);
@@ -179,6 +188,12 @@ body {
 }
 
 @media screen and (min-width: 43.75em) {
+  .container {
+    padding: 5rem 0 5rem;
+  }
+}
+
+@media screen and (min-width: 43.75em) {
   /* navigation */
   .less-padding {
     padding-top: 0.5em;
@@ -215,6 +230,21 @@ body {
 .title-primary,
 .footer h2 {
   font-size: 3rem;
+}
+
+@media screen and (min-width: 43.75em) {
+  .title-primary {
+    font-size: 4.5rem;
+  }
+  .footer h2 {
+    font-size: 3.6rem;
+  }
+}
+
+@media screen and (min-width: 62.5em) {
+  .title-primary {
+    font-size: 5rem;
+  }
 }
 
 .text-white {
@@ -370,6 +400,14 @@ li.nav__item {
 .text-content .btn {
   padding: 0.3em 0.75em;
   border-radius: 10em;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+}
+
+@media screen and (min-width: 43.75em) {
+  .text-content .btn {
+    font-size: 1.6rem;
+  }
 }
 
 a.nav__link:hover {
@@ -415,12 +453,44 @@ a.nav__link.btn:hover {
   background-color: lightgray;
 }
 
+@media screen and (min-width: 43.75em) {
+  .selling-point {
+    text-align: center;
+  }
+  .main-content h2 {
+    font-size: 2.5rem;
+  }
+  .text-content {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (min-width: 43.75em) {
+  .columns > .selling-point + .selling-point {
+    margin-left: 3em;
+  }
+}
+
 .text-content .btn {
   display: inline-block;
 }
 
 .sidebar {
   margin-top: 1.5em;
+}
+
+@media screen and (min-width: 62.5em) {
+  .large-screen-column {
+    display: flex;
+  }
+  .sidebar {
+    flex-flow: column;
+    margin: 0 0 0 3.5em;
+  }
+
+  .sidebar > * + * {
+    margin: 1em 0 0 0;
+  }
 }
 
 .sidebar > div {
@@ -431,8 +501,44 @@ a.nav__link.btn:hover {
   margin-top: 3em;
 }
 
-.footer__nav-list:first-of-type {
-  margin-top: 3em;
+/* footer */
+
+.footer__nav__container {
+  margin-top: 1em;
 }
 
+@media screen and (min-width: 62.5em) {
+  .footer__nav {
+    display: flex;
+    margin-top: 2em;
+  }
+
+  .company-info {
+    flex-basis: 40%;
+    margin-top: 1em;
+  }
+  .footer__nav__container {
+    flex-basis: 60%;
+    margin-top: 0;
+    margin-left: 1em;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 28.125em) {
+  .footer__nav__container {
+    display: flex;
+  }
+  .footer__nav-list:nth-child(2) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 62.5em) {
+  .footer__nav-list:nth-child(2) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 /* notes: at 700px breakpoint nav element with class of nav we want to its flex-basis to be 75% but at the 1000px breakpoint we want its flex-basis to be 50% */
