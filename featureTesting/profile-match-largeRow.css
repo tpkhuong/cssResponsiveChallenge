@@ -114,9 +114,63 @@ select {
 .testimonials__displays {
   min-height: 45vh;
   position: relative;
+  display: flex;
 }
 
-.testimonials__display:nth-child(1) {
+/* using a div container that holds to span elements. one span will be the left arrow the other will be the right */
+
+.arrow-container {
+  align-self: center;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 500;
+}
+
+[class*="-arrow"] {
+  display: inline-block;
+  font-size: 2em;
+  color: red;
+  position: relative;
+}
+[class*="left-"] {
+  right: 1em;
+}
+[class*="right-"] {
+  left: 1em;
+}
+
+/* 
+different approached
+.arrow-container {
+  align-self: center;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.arrow-container::before {
+  content: "\00AB";
+  position: relative;
+  display: inline-block;
+  color: red;
+  font-size: 5rem;
+  z-index: 1005;
+  right: 1em;
+}
+.arrow-container::after {
+  content: "\00BB";
+  position: relative;
+  display: inline-block;
+  color: red;
+  font-size: 5rem;
+  z-index: 1005;
+  left: 1em;
+} */
+
+.testimonials__display:nth-child(2) {
   height: 45vh;
   background-color: #a59678;
 
@@ -125,9 +179,9 @@ select {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: 0;
 }
-.testimonials__display:nth-child(2) {
+.testimonials__display:nth-child(3) {
   height: 45vh;
   background-color: aliceblue;
   position: absolute;
@@ -137,7 +191,7 @@ select {
   bottom: 0;
   z-index: -1;
 }
-.testimonials__display:nth-child(3) {
+.testimonials__display:nth-child(4) {
   height: 45vh;
   background-color: antiquewhite;
   position: absolute;
@@ -145,15 +199,15 @@ select {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
-.show {
+.show.show {
   z-index: 100;
 }
 
-.hidden {
-  z-index: -10;
+.hidden.hidden {
+  z-index: -1;
 }
 
 .testimonial__profiles {
