@@ -4,6 +4,10 @@
 //     console.dir(event.target);
 //   });
 
+/*
+get height and width of target.element
+*/
+
 function ourSelectors() {
   var selectTheArticle = document.querySelector(".testimonial__profiles");
   /* might not have to use the selector below */
@@ -58,7 +62,9 @@ function arrowDisplayProfileFunctionality(
   { arrowForDisplay, displayElements } = ourSelectors()
 ) {
   /* prettier-ignore*/
-  arrowForDisplay.addEventListener("click",function switchDisplayClickingArrow(event) {
+  arrowForDisplay.addEventListener("click", function switchDisplayClickingArrow(event) {
+      // console.log(displayElements.scrollHeight);
+      // console.log(displayElements.scrollWidth);
       var convertToArrOfDisplays = Array.from(displayElements.children);
       var arrOfDisplays = convertToArrOfDisplays.slice(1);
       /* array of referenced elements */
@@ -109,6 +115,23 @@ function leftArrowClicked(indexInput, arrInput) {
 function rightArrowClicked(indexInput, arrInput) {
   /* array of referenced elements */
   var [firstDisplay, middleDisplay, lastDisplay] = arrInput;
+  switch (indexInput) {
+    case 0:
+      middleDisplay.classList.add("show");
+      firstDisplay.classList.remove("show");
+      lastDisplay.classList.remove("show");
+      break;
+    case 1:
+      lastDisplay.classList.add("show");
+      firstDisplay.classList.remove("show");
+      middleDisplay.classList.remove("show");
+      break;
+    case 2:
+      firstDisplay.classList.add("show");
+      middleDisplay.classList.remove("show");
+      lastDisplay.classList.remove("show");
+      break;
+  }
 }
 
 function changingDisplayElementZindex() {
