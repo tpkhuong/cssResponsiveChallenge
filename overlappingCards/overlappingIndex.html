@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <meta name="author" content="KhuongCorp" />
+    <meta name="description" content="Learning Nodejs" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="overlappingIndex.css" />
+    <title>Overlapping Cards</title>
+  </head>
+  <body>
+    <main role="main">
+      <section class="cards-container">
+        <div>
+          <input id="happy-sushi" name="cards" type="radio" />
+          <input id="sushi-lover" name="cards" type="radio" />
+          <div class="card">
+            <label for="happy-sushi" class="happy-card">
+              <h2 class="card-title">Happy Sushi Lunch</h2>
+              <ul>
+                <li>California Roll</li>
+                <li>2 Pieces Salmon Nigiri</li>
+                <li>Sea Sale Edamame</li>
+                <li>Miso Soup</li>
+              </ul>
+              <p>$12</p>
+            </label>
+
+            <label for="sushi-lover" class="lover-card">
+              <h2 class="card-title">Sushi Lover Lunch</h2>
+              <ul>
+                <li>Spicy Tuna Roll</li>
+                <li>Shrimp Tempura Roll</li>
+                <li>4 Pieces Assorted Nigiri</li>
+                <li>Wontop Soup</li>
+              </ul>
+              <p>$18</p>
+            </label>
+          </div>
+          <label for="happy-sushi">Switch to Happy Sushi Lunch!</label>
+          <label for="sushi-lover">Switch to Sushi Lover's Lunch!</label>
+        </div>
+      </section>
+    </main>
+    <script src="overlappingIndex.js"></script>
+  </body>
+</html>

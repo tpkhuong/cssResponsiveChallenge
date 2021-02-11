@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Oswald:wght@400;500;700&display=swap");
+
+:root {
+  --ff-Montserrat: "Montserrat", sans-serif;
+  --ff-Oswald: "Oswald", sans-serif;
+
+  --clr-primary: #a59678;
+  --clr-200: #6f737f;
+  --clr-300: #3b4050;
+  --clr-400: #2e323f;
+  --clr-white: #fff;
+
+  --fs-200: 1rem;
+  --fs-300: 1.125rem;
+  --fs-400: 1.3125rem;
+  --fs-500: 1.5rem;
+  --fs-600: 1.875rem;
+  --fs-700: 2.25rem;
+  --fs-800: 5.625rem;
+
+  --fw-med: 500;
+  --fw-bold: 700;
+  --fw-bolder: 900;
+
+  --med-breakpoint: 43.75em;
+  --large-breakpoint: 62.5em;
+
+  --container-width: 75em;
+}
+
+/* reset */
+
+/* reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+body {
+  margin: 0;
+  /* figure, dl, and dd have default margin */
+  /* font-weight: 100; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.4;
+  font-size: var(--fs-400);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-fg, var(--clr-neutral-900));
+  font-weight: var(--fw-700);
+  font-size: var(--fs-300);
+}
+
+img {
+  /* using object-fit for images. we have to set a height or a min-height on the image and the width of 100% 
+  exception to the rule of setting a height. we can sometime use it on a child element.
+  */
+  max-width: 100%;
+  /* we use max-width: 100% so when we have an img element inside of a div and we want to use flex which means the div will be a flex item
+    the img will shrink and grow as its parent element shrink and grows
+    */
+  display: block;
+  height: auto;
+}
+
+ul[class],
+li[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[role="main"] {
+  background-color: #586875;
+  height: 100vh;
+  display: flex;
+}
+
+.cards-container {
+  max-width: 20rem;
+  margin: auto;
+}
+
+input[type="radio"] {
+  /* visibility: hidden; */
+}
+
+.card {
+  border: 1px solid red;
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+}
+
+label {
+  display: inline-block;
+  background-color: aliceblue;
+  /* width: 100%; */
+  position: absolute;
+}
+
+[class="happy-card"] {
+  transition: transform 1s ease-in;
+}
+
+[id="happy-sushi"]:checked ~ .card .happy-card,
+[id="sushi-lover"]:checked ~ .card .lover-card {
+  background-color: red;
+  animation: moveAndScale 1s linear forwards;
+}
+[id="happy-sushi"]:checked ~ .card .lover-card,
+[id="sushi-lover"]:checked ~ .card .happy-card {
+  background-color: red;
+  animation: moveBack 1s linear forwards;
+}
+
+@keyframes moveAndScale {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1) translateX(1em);
+  }
+  100% {
+    transform: scale(1.3) translateX(2em);
+  }
+}
+
+@keyframes moveBack {
+  0% {
+    transform: scale(1.3) translateX(2em);
+  }
+  50% {
+    transform: scale(1) translateX(1em);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
