@@ -106,6 +106,14 @@ select {
   }
 }
 
+p {
+  line-height: 1.1;
+}
+
+.flow-content > * + * {
+  margin-top: 1em;
+}
+
 .wrapper {
   max-width: 62.5em;
   margin: 0 auto;
@@ -125,20 +133,23 @@ select {
   width: 100%;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 500;
+  /* transform: translateY(25vh); */
+  z-index: 150;
 }
 
 [class*="-arrow"] {
   display: inline-block;
   font-size: 2em;
   color: red;
-  position: relative;
+  /* position: relative; */
 }
 [class*="left-"] {
-  right: 1em;
+  /* transform: translateX(-1em); */
+  /* right: 1em; */
 }
 [class*="right-"] {
-  left: 1em;
+  /* transform: translateX(1em); */
+  /* left: 1em; */
 }
 
 /* 
@@ -170,9 +181,10 @@ different approached
   left: 1em;
 } */
 
-.testimonials__display:nth-child(2) {
+.testimonials__display {
   height: 45vh;
-  background-color: #a59678;
+  /* background-color: #a59678; */
+  border-radius: 1em;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -184,25 +196,48 @@ different approached
   bottom: 0;
   z-index: -1;
 }
-.testimonials__display:nth-child(3) {
-  height: 45vh;
-  background-color: aliceblue;
+
+.testimonials__display:nth-of-type(2) {
+  /* height: 45vh; */
+  background-color: #7074f3;
+  /* 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -1; */
 }
-.testimonials__display:nth-child(4) {
-  height: 45vh;
-  background-color: antiquewhite;
+.testimonials__display:nth-of-type(3) {
+  /* height: 45vh; */
+  background-color: rgb(118, 170, 216);
+
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -1; */
+}
+.testimonials__display:nth-of-type(4) {
+  /* height: 45vh; */
+  background-color: antiquewhite;
+  /* 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; */
 }
 
 .show.show {
@@ -215,11 +250,51 @@ different approached
 
 .testimonial__profiles {
   display: flex;
+  margin-top: 1em;
+}
+
+.testimonial__profiles > * {
+  flex-basis: 100%;
+}
+
+.testimonial__profiles > * + * {
+  margin-left: 1em;
 }
 
 .testimonial__profiles a {
   display: block;
 }
+
+.testimonial__profile {
+  border-radius: 1em;
+  overflow: hidden;
+  padding: 1em;
+}
+
+.testimonial__profile img {
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+
+.testimonial__profile:nth-of-type(1) {
+  background-color: #7074f3;
+}
+.testimonial__profile:nth-of-type(2) {
+  background-color: rgb(118, 170, 216);
+}
+.testimonial__profile:nth-of-type(3) {
+  background-color: antiquewhite;
+}
+
+/* 
+we need the arrow to be an element in the DOM so we can select it with JS
+.testimonials__displays::before {
+  content: "\00BB";
+  display: inline-block;
+  color: red;
+  font-size: 4rem;
+  z-index: 101;
+} */
 
 /* display-content */
 
@@ -230,14 +305,38 @@ different approached
   padding: 1em;
 }
 
-.testimonials__display:nth-child(2) img {
-  padding: 1em;
+.testimonials__display img {
+  border-radius: 1em;
+  align-self: stretch;
 }
 
 .display-quote {
   font-size: 2rem;
+  position: relative;
+}
+
+.display-quote::before,
+.display-quote::after {
+  position: absolute;
+  font-size: 10rem;
+  color: rgb(236, 127, 132);
+}
+
+.display-quote::before {
+  content: "\201c";
+  transform: translate(-4rem, -4.5rem);
+}
+
+.display-quote::after {
+  content: "\201e";
+  transform: translate(1rem, -7rem);
 }
 
 /* \00BB : right arrow
 \00AB : left arrow
+*/
+
+/*
+\201C: left quote symbol
+\201E: right quote symbol
 */
