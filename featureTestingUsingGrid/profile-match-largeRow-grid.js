@@ -12,7 +12,7 @@ function ourSelectors() {
   /* might not have to use the selector below */
   var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
   /* target element is the article/container containing all the div with the class: __displays*/
-  var displayElements = document.querySelector(".testimonials__displays");
+  var displayElements = document.querySelectorAll(".testimonials__display");
   var arrowForDisplay = document.querySelector(".arrow-container");
   return {
     selectTheArticle,
@@ -33,24 +33,49 @@ function showDisplayOnProfileClicked(
 ) {
   selectTheArticle.addEventListener("click", function getInfo(event) {
     /*element in the convert array we want to change the z-index*/
-    var convertCollectionToArr = Array.from(displayElements.children);
-    var arrOfDisplays = convertCollectionToArr.slice(1);
+    var arrOfDisplays = Array.from(displayElements);
+    // var arrOfDisplays = convertCollectionToArr.slice(1);
     /*elements in the makeToArray we want to */
-    var makeToArray = Array.from(selectTheProfiles);
+    // var makeToArray = Array.from(selectTheProfiles);
 
     var [checkThisStr, secondStr] = event.target.parentElement.id.split("-");
+    var [checkParentElementStr, secondPartOfParentStr] = event.target.id.split(
+      "-"
+    );
+    // var parentElementWithTestimonialsProfileClass = event.target.className;
+    // console.dir(event.target);
+    // console.log(checkThisStr);
+    if (
+      event.target.id.includes("-profile") &&
+      event.target.className.includes("testimonial__profile")
+    ) {
+      arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
+        if (eachElement.id.includes(checkParentElementStr)) {
+          /* toggle show and hidden class which will change the z-index*/
 
-    console.log(checkThisStr);
-    arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
-      if (eachElement.id.includes(checkThisStr)) {
-        /* toggle show and hidden class which will change the z-index*/
-        eachElement.classList.add("show");
-      } else {
-        eachElement.classList.remove("show");
-        /*hidden in our css file is below the show declartion.*/
-        // eachElement.classList.add("hidden");
-      }
-    });
+          eachElement.classList.add("show");
+        } else {
+          eachElement.classList.remove("show");
+          /*hidden in our css file is below the show declartion.*/
+          // eachElement.classList.add("hidden");
+        }
+        /*if we clicked on parent/div element containing the div element(profiles)*/
+      });
+    } else {
+      // console.log(parentElementWithTestimonialsProfileClass);
+      arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
+        if (eachElement.id.includes(checkThisStr)) {
+          /* toggle show and hidden class which will change the z-index*/
+
+          eachElement.classList.add("show");
+        } else {
+          eachElement.classList.remove("show");
+          /*hidden in our css file is below the show declartion.*/
+          // eachElement.classList.add("hidden");
+        }
+        /*if we clicked on parent/div element containing the div element(profiles)*/
+      });
+    }
   });
 }
 
@@ -62,10 +87,10 @@ function arrowDisplayProfileFunctionality(
 ) {
   /* prettier-ignore*/
   arrowForDisplay.addEventListener("click", function switchDisplayClickingArrow(event) {
-      console.log(displayElements.scrollHeight);
-      console.log(displayElements.scrollWidth);
-      var convertToArrOfDisplays = Array.from(displayElements.children);
-      var arrOfDisplays = convertToArrOfDisplays.slice(1);
+      // console.log(displayElements.scrollHeight);
+      // console.log(displayElements.scrollWidth);
+      var arrOfDisplays = Array.from(displayElements);
+      // var arrOfDisplays = convertToArrOfDisplays.slice(1);
       /* array of referenced elements */
       var [firstDisplay,middleDisplay,lastDisplay] = arrOfDisplays;
       /* variable below will let us know which arrow is clicked left or right */
