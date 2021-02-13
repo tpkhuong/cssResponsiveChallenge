@@ -120,7 +120,7 @@ p {
 }
 
 .testimonials__displays {
-  min-height: 45vh;
+  min-height: 27rem;
   position: relative;
   display: flex;
 }
@@ -182,7 +182,7 @@ different approached
 } */
 
 .testimonials__display {
-  height: 45vh;
+  min-height: 10rem;
   /* background-color: #a59678; */
   border-radius: 1em;
 
@@ -302,6 +302,42 @@ we need the arrow to be an element in the DOM so we can select it with JS
 
 input[type="radio"] {
   display: none;
+  /* position: relative;
+  z-index: 150; */
+}
+
+.label-container {
+  border: 1px solid red;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 100vw;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.label-container::before {
+  content: "";
+  display: inline-block;
+  border: 1px solid pink;
+  position: absolute;
+  width: 1rem;
+  min-height: 1rem;
+}
+
+[for="volunteer"] {
+  font-size: 1.5rem;
+  border: 1px solid blue;
+  padding: 0.2em 1em;
+  border-radius: 100vw;
+  cursor: pointer;
+}
+[for="volunteer"]:hover {
+  background-color: #7074f3;
+}
+
+input[name*="toggle"] {
+  display: inline-block;
   /* position: relative;
   z-index: 150; */
 }
