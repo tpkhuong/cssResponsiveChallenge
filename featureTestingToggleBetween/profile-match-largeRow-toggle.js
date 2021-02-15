@@ -14,7 +14,7 @@ function ourSelectors() {
   /* target element is the article/container containing all the div with the class: __displays*/
   var displayElements = document.querySelectorAll(".testimonials__display");
   var arrowForDisplay = document.querySelector(".arrow-container");
-  var selectRadioButtons = document.querySelectorAll("[type='radio']");
+  var selectRadioButtons = document.querySelectorAll("[name='displays']");
   return {
     selectTheArticle,
     selectTheProfiles,
@@ -98,6 +98,7 @@ function arrowDisplayProfileFunctionalityWithRadioButton(
       // console.dir(inputRadioButtons);
       var arrowDirectionClicked = event.target.className.split("-");
       var indexOfRadioButtonThatIsChecked;
+
       arrOfInputRadioButtons.forEach(function printChecked(eachElement, index) {
         if (eachElement.checked) {
           indexOfRadioButtonThatIsChecked = index;
