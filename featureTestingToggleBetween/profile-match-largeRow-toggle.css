@@ -308,7 +308,7 @@ input[type="radio"] {
 
 .label-container {
   border: 1px solid red;
-  width: 40%;
+  width: 45%;
   display: flex;
   justify-content: space-between;
   border-radius: 100vw;
@@ -316,25 +316,61 @@ input[type="radio"] {
   /* overflow: hidden; */
 }
 
-.label-container::before {
+/* .label-container::before {
   content: "";
   display: inline-block;
   border: 1px solid pink;
   position: absolute;
   width: 1rem;
   min-height: 1rem;
-}
+} */
 
-[for="volunteer"] {
+.label-container label {
   font-size: 1.5rem;
   border: 1px solid blue;
   padding: 0.2em 1em;
   border-radius: 100vw;
   cursor: pointer;
+  position: relative;
 }
-[for="volunteer"]:hover {
+
+/* background color of label will depend on which radio button is clicked */
+
+/* input[id="volunteer"]:checked ~ .label-container label[for="volunteer"],
+input[id="non-profit"]:checked ~ .label-container label[for="non-profit"],
+input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
   background-color: #7074f3;
+} */
+
+/* move the div inside our label container. what if we move and change the size of the div depending on the radio button checked/clicked */
+
+/* volunteer button/toggle */
+.high-lighted-label {
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  min-height: 100%;
+  width: 32%;
+  border-radius: 100vw;
+  background-color: #7074f3;
+  transition: transform 0.5s linear;
+  z-index: -1;
+  /* border: 4px solid rgb(3, 58, 3); */
 }
+
+/* non-profit button/toggle */
+input[id="non-profit"]:checked ~ .label-container .high-lighted-label {
+  width: 34%;
+  transform: translateX(102%);
+}
+
+/* sponsors button/toggle */
+
+input[id="sponsors"]:checked ~ .label-container .high-lighted-label {
+  width: 29%;
+  transform: translateX(245%);
+}
+/* input[id="volunteer"]:checked ~ .label-container  */
 
 input[name*="toggle"] {
   display: inline-block;
