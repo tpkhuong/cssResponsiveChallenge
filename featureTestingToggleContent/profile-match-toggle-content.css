@@ -308,7 +308,7 @@ input[type="radio"] {
 
 .label-container {
   border: 1px solid red;
-  width: 45%;
+  width: 28em;
   display: flex;
   justify-content: space-between;
   border-radius: 100vw;
@@ -350,7 +350,7 @@ input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
   left: 0;
   display: inline-block;
   min-height: 100%;
-  width: 32%;
+  width: 8.9em;
   border-radius: 100vw;
   background-color: #7074f3;
   transition: transform 0.5s linear;
@@ -360,15 +360,15 @@ input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
 
 /* non-profit button/toggle */
 input[id="non-profit"]:checked ~ .label-container .high-lighted-label {
-  width: 34%;
-  transform: translateX(102%);
+  width: 9.6em;
+  transform: translateX(9.6em);
 }
 
 /* sponsors button/toggle */
 
 input[id="sponsors"]:checked ~ .label-container .high-lighted-label {
-  width: 29%;
-  transform: translateX(245%);
+  width: 8em;
+  transform: translateX(19.9em);
 }
 /* input[id="volunteer"]:checked ~ .label-container  */
 
