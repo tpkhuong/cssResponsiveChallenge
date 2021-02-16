@@ -345,6 +345,7 @@ input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
 /* move the div inside our label container. what if we move and change the size of the div depending on the radio button checked/clicked */
 
 /* volunteer button/toggle */
+
 .high-lighted-label {
   position: absolute;
   left: 0;
@@ -359,6 +360,7 @@ input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
 }
 
 /* non-profit button/toggle */
+
 input[id="non-profit"]:checked ~ .label-container .high-lighted-label {
   width: 9.6em;
   transform: translateX(9.6em);
@@ -378,7 +380,39 @@ input[name*="toggle"] {
   z-index: 150; */
 }
 
-/* radio button functionality  */
+/* display container: element with display__container that hold 3 articles element each element has divs. */
+
+.displays__container {
+  position: relative;
+  min-height: 30rem;
+  margin-top: 1rem;
+}
+
+.displays__container > [id^="display-"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+[id="display-one"] {
+  border: 2px solid red;
+}
+[id="display-two"] {
+  border: 2px solid purple;
+}
+[id="display-three"] {
+  border: 2px solid green;
+}
+
+/* switch between display containers (article element) depending on which toggle is checked */
+
+input[id="volunteer"]:checked ~ .displays__container [id="display-one"] {
+  /* works */
+  font-size: 5rem;
+}
+/* radio button functionality when profile is clicked. card element */
 
 [id="one-display"]:checked ~ [id="first-display"],
 [id="two-display"]:checked ~ [id="second-display"],
