@@ -13,7 +13,12 @@ function ourSelectors() {
   var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
   /* target element is the article/container containing all the div with the class: __displays*/
   var displayElements = document.querySelectorAll(".testimonials__display");
-  var arrowForDisplay = document.querySelector(".arrow-container");
+  /* when we were selecting our arrow container using document.querySelector, our function arrowDisplayProfileFunctionalityWithRadioButton
+  did not work because we were selecting ONLY one of the arrow-container. Since we have THREE div element container holding our displays(article elements)
+  we have to select all of the arrow container in each of our article element with the class testimonials__displays
+  */
+  var arrowForDisplay = document.querySelectorAll(".arrow-container");
+  /* we didnt have to change the radio selector because we were already using document.querySelectorAll to select those radio buttons. */
   var selectRadioButtons = document.querySelectorAll("[name='displays']");
   return {
     selectTheArticle,
@@ -89,35 +94,44 @@ arrowDisplayProfileFunctionalityWithRadioButton();
 function arrowDisplayProfileFunctionalityWithRadioButton(
   { arrowForDisplay, selectRadioButtons } = ourSelectors()
 ) {
-  arrowForDisplay.addEventListener(
-    "click",
-    function switchDisplayClickingArrow(event) {
-      // console.log(displayElements.scrollHeight);
-      // console.log(displayElements.scrollWidth);
-      var arrOfInputRadioButtons = Array.from(selectRadioButtons);
-      // console.dir(inputRadioButtons);
-      var arrowDirectionClicked = event.target.className.split("-");
-      var indexOfRadioButtonThatIsChecked;
+  var arrOfArrowForDisplay = Array.from(arrowForDisplay);
 
-      arrOfInputRadioButtons.forEach(function printChecked(eachElement, index) {
-        if (eachElement.checked) {
-          indexOfRadioButtonThatIsChecked = index;
+  arrOfArrowForDisplay.forEach(function addEventToEachArrowContainer(
+    eachContainer
+  ) {
+    eachContainer.addEventListener(
+      "click",
+      function switchDisplayClickingArrow(event) {
+        // console.log(displayElements.scrollHeight);
+        // console.log(displayElements.scrollWidth);
+        var arrOfInputRadioButtons = Array.from(selectRadioButtons);
+        // console.dir(inputRadioButtons);
+        var arrowDirectionClicked = event.target.className.split("-");
+        var indexOfRadioButtonThatIsChecked;
+
+        arrOfInputRadioButtons.forEach(function printChecked(
+          eachElement,
+          index
+        ) {
+          if (eachElement.checked) {
+            indexOfRadioButtonThatIsChecked = index;
+          }
+        });
+
+        if (arrowDirectionClicked.includes("right")) {
+          rightArrowClickedRadioButton(
+            indexOfRadioButtonThatIsChecked,
+            arrOfInputRadioButtons
+          );
+        } else {
+          leftArrowClickedRadioButton(
+            indexOfRadioButtonThatIsChecked,
+            arrOfInputRadioButtons
+          );
         }
-      });
-
-      if (arrowDirectionClicked.includes("right")) {
-        rightArrowClickedRadioButton(
-          indexOfRadioButtonThatIsChecked,
-          arrOfInputRadioButtons
-        );
-      } else {
-        leftArrowClickedRadioButton(
-          indexOfRadioButtonThatIsChecked,
-          arrOfInputRadioButtons
-        );
       }
-    }
-  );
+    );
+  });
 }
 
 function leftArrowClickedRadioButton(indexInput, arrInput) {
