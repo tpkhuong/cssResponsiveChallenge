@@ -408,10 +408,13 @@ input[name*="toggle"] {
 
 /* switch between display containers (article element) depending on which toggle is checked */
 
-input[id="volunteer"]:checked ~ .displays__container [id="display-one"] {
+input[id="volunteer"]:checked ~ .displays__container [id="display-one"],
+input[id="non-profit"]:checked ~ .displays__container [id="display-two"],
+input[id="sponsors"]:checked ~ .displays__container [id="display-three"] {
   /* works */
-  font-size: 5rem;
+  z-index: 50;
 }
+
 /* radio button functionality when profile is clicked. card element */
 
 [id="one-display"]:checked ~ [id="first-display"],
