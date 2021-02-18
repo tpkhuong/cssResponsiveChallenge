@@ -301,9 +301,9 @@ we need the arrow to be an element in the DOM so we can select it with JS
 /* radio input */
 
 input[type="radio"] {
-  display: none;
-  /* position: relative;
-  z-index: 150; */
+  /* display: none; */
+  /* position: absolute; */
+  /* z-index: 150; */
 }
 
 .label-container {
@@ -363,14 +363,14 @@ input[id="sponsors"]:checked ~ .label-container label[for="sponsors"] {
 
 input[id="non-profit"]:checked ~ .label-container .high-lighted-label {
   width: 9.6em;
-  transform: translateX(9.6em);
+  transform: translateX(9.3em);
 }
 
 /* sponsors button/toggle */
 
 input[id="sponsors"]:checked ~ .label-container .high-lighted-label {
-  width: 8em;
-  transform: translateX(19.9em);
+  width: 8.7em;
+  transform: translateX(19.3em);
 }
 /* input[id="volunteer"]:checked ~ .label-container  */
 
@@ -398,6 +398,7 @@ input[name*="toggle"] {
 
 [id="display-one"] {
   border: 2px solid red;
+  /* font-size: 3em; */
 }
 [id="display-two"] {
   border: 2px solid purple;
