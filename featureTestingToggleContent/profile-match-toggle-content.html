@@ -14,20 +14,25 @@
     <section class="testimonials">
       <div class="wrapper">
         <div class="toggle-container">
-          <input name="toggle-between-containers" type="radio" id="volunteer" checked>
-          <input name="toggle-between-containers" type="radio" id="non-profit">
-          <input name="toggle-between-containers" type="radio" id="sponsors">
+          <input aria-labelledby="volunteer panel" name="toggle-between-containers" type="radio" id="volunteer" checked>
+          <input aria-labelledby="non-profit panel" name="toggle-between-containers" type="radio" id="non-profit">
+          <input aria-labelledby="sponsors panel" name="toggle-between-containers" type="radio" id="sponsors">
           <div class="label-container">
-            <label for="volunteer">Volunteer<span></span></label>
-            <label for="non-profit">Non-Profit</label>
-            <label for="sponsors">Sponors</label>
+            <!-- id on our <label> elements are matching the aria-labelledby in the input -->
+            <!-- aria-label the screen reader will read it -->
+            <label id="volunteer panel" aria-label="showing volunteer panel, use right arrow to show non-profit panel" for="volunteer">Volunteer<span></span></label>
+            <label id="non-profit panel" aria-label="showing non-profit panel, use left arrow to show volunteer panel, use right arrow to show sponsors panel" for="non-profit">Non-Profit</label>
+            <label id="sponsors panel" aria-label="showing sponsors panel, use left arrow to show non-profit panel" for="sponsors">Sponsors</label>
             <span class="high-lighted-label"></span>
           </div>
           <div class="displays__container">
+            
             <article id="display-one" class="testimonials__displays">
-              <input type="radio" id="one-display" name="displays">
-              <input type="radio" id="two-display" name="displays">
-              <input type="radio" id="three-display" name="displays">
+              <!-- id on our <label> elements are matching the aria-labelledby in the input -->
+              <!-- aria-label the screen reader will read it -->
+              <input aria-labelledby="" type="radio" id="one-display" name="switch-between-profile-display">
+              <input aria-labelledby="" type="radio" id="two-display" name="switch-between-profile-display">
+              <input aria-labelledby="" type="radio" id="three-display" name="switch-between-profile-display">
               <div class="arrow-container">
                 <span class="left-arrow">&#60;</span>
                 <span class="right-arrow">&#62;</span>
@@ -150,8 +155,10 @@
           </div>
         </div>
         <article class="testimonial__profiles">
+          <!-- id on our <label> elements are matching the aria-labelledby in the input -->
+              <!-- aria-label the screen reader will read it -->
           <!-- <a href="#first-display"> </a> -->
-          <label for="one-display">
+          <label id="" aria-label="" for="one-display">
             <div id="first-profile" class="testimonial__profile flow-content">
               
                 <img src="https://source.unsplash.com/random/400x100" alt="" />
@@ -167,7 +174,7 @@
             </div>
           </label>
 
-          <label for="two-display">
+          <label id="" aria-label="" for="two-display">
             <div id="second-profile" class="testimonial__profile flow-content">
               <img src="https://source.unsplash.com/random/400x100" alt="" />
               <p>
@@ -182,7 +189,7 @@
           </label>
           <!-- <a href="#second-display">
           </a> -->
-          <label for="three-display">
+          <label id="" aria-label="" for="three-display">
             <div id="third-profile" class="testimonial__profile flow-content">
               <img src="https://source.unsplash.com/random/400x100" alt="" />
               <p>
