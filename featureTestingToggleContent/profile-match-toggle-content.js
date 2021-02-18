@@ -20,12 +20,17 @@ function ourSelectors() {
   var arrowForDisplay = document.querySelectorAll(".arrow-container");
   /* we didnt have to change the radio selector because we were already using document.querySelectorAll to select those radio buttons. */
   var selectRadioButtons = document.querySelectorAll("[name='displays']");
+  /*select the radio button that switched between the display container*/
+  var radioBtnThatControlsDisplayPanel = document.querySelectorAll(
+    "[name='toggle-between-containers'"
+  );
   return {
     selectTheArticle,
     selectTheProfiles,
     displayElements,
     arrowForDisplay,
     selectRadioButtons,
+    radioBtnThatControlsDisplayPanel,
   };
 }
 
@@ -90,12 +95,16 @@ function showDisplayOnProfileClicked(
 arrowDisplayProfileFunctionalityWithRadioButton();
 
 /* using radio button and using js for arrow funtionality with radio buttons */
-
+/* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display contaienr: either volunteer, non-profit or sponsors */
 function arrowDisplayProfileFunctionalityWithRadioButton(
-  { arrowForDisplay, selectRadioButtons } = ourSelectors()
+  {
+    arrowForDisplay,
+    selectRadioButtons,
+    radioBtnThatControlsDisplayPanel,
+  } = ourSelectors()
 ) {
   var arrOfArrowForDisplay = Array.from(arrowForDisplay);
-
+  console.dir(radioBtnThatControlsDisplayPanel);
   arrOfArrowForDisplay.forEach(function addEventToEachArrowContainer(
     eachContainer
   ) {
@@ -109,6 +118,7 @@ function arrowDisplayProfileFunctionalityWithRadioButton(
         var arrowDirectionClicked = event.target.className.split("-");
         var indexOfRadioButtonThatIsChecked;
 
+        console.dir(event.target.parentElement);
         arrOfInputRadioButtons.forEach(function printChecked(
           eachElement,
           index
