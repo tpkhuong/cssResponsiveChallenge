@@ -32,7 +32,7 @@ document
     }
     if (event.key == "Tab" || event.code == "Tab" || event.keyCode == 9) {
       videoElement.pause();
-
+      /*hitting tab key will pause video and select next focusable element*/
       console.log(event);
       console.log("we hit the tab key");
     }
