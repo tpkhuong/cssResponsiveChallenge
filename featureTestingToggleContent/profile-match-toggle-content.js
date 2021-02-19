@@ -19,10 +19,16 @@ function ourSelectors() {
   */
   var arrowForDisplay = document.querySelectorAll(".arrow-container");
   /* we didnt have to change the radio selector because we were already using document.querySelectorAll to select those radio buttons. */
+  /****** select radio btns inside id=display-one *******/
+  var nonprofitRadioBtnInsideDisplayPanel = document.querySelectorAll(
+    "[name='non-profit-profile-display']"
+  );
+  /****** select radio btns inside id=display-two *******/
+  /****** select radio btns inside id=display-three *******/
   var selectRadioButtons = document.querySelectorAll("[name='displays']");
   /*select the radio button that switched between the display container*/
   var radioBtnThatControlsDisplayPanel = document.querySelectorAll(
-    "[name='toggle-between-containers'"
+    "[name='toggle-between-containers']"
   );
   return {
     selectTheArticle,
@@ -31,6 +37,7 @@ function ourSelectors() {
     arrowForDisplay,
     selectRadioButtons,
     radioBtnThatControlsDisplayPanel,
+    nonprofitRadioBtnInsideDisplayPanel,
   };
 }
 
@@ -92,7 +99,65 @@ function showDisplayOnProfileClicked(
 
 // showDisplayOnProfileClicked();
 // arrowDisplayProfileFunctionality();
-arrowDisplayProfileFunctionalityWithRadioButton();
+
+// arrowDisplayProfileFunctionalityWithRadioButton();
+
+radioBtnFuntionalityBasedOnPanelSelected();
+
+function radioBtnFuntionalityBasedOnPanelSelected(
+  {
+    radioBtnThatControlsDisplayPanel,
+    nonprofitRadioBtnInsideDisplayPanel,
+  } = ourSelectors()
+) {
+  var radioBtnChecked;
+  var wordToMatchThePanel;
+  var listOfRadioBtnsConvertToArr = Array.from(
+    radioBtnThatControlsDisplayPanel
+  );
+  var listOfNonprofitRadioBtn = Array.from(nonprofitRadioBtnInsideDisplayPanel);
+
+  listOfRadioBtnsConvertToArr.forEach(function findRadioBtnWithChecked(
+    radioBtn
+  ) {
+    if (radioBtn.checked === true) {
+      radioBtnChecked = radioBtn;
+      wordToMatchThePanel = radioBtn.id;
+    }
+  });
+
+  listOfRadioBtnsConvertToArr.forEach(function findTheCheckedRadioBtn(
+    eachRadioBtn
+  ) {
+    eachRadioBtn.addEventListener(
+      "change",
+      function watchForChangingRadiobtn(event) {
+        // console.log(event.target);
+        // console.dir(eachRadioBtn.attributes);
+        if (eachRadioBtn.checked === true) {
+          radioBtnChecked = eachRadioBtn;
+          wordToMatchThePanel = eachRadioBtn.id;
+        }
+        console.log(radioBtnChecked);
+        console.log(wordToMatchThePanel);
+      }
+    );
+  });
+  var [firstRadionBtn, secondRadioBtn, thirdRadion] = listOfNonprofitRadioBtn;
+
+  switch (wordToMatchThePanel) {
+    case "non-profit":
+      firstRadionBtn.setAttribute("id", "one-display");
+      secondRadioBtn.setAttribute("id", "two-display");
+      thirdRadion.setAttribute("id", "three-display");
+  }
+  console.log(radioBtnChecked);
+  console.log(wordToMatchThePanel);
+}
+
+/***** helper function *****/
+
+function changeDisplayBasedOnRadioBtnChecked() {}
 
 /* using radio button and using js for arrow funtionality with radio buttons */
 /* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display contaienr: either volunteer, non-profit or sponsors */
@@ -104,7 +169,7 @@ function arrowDisplayProfileFunctionalityWithRadioButton(
   } = ourSelectors()
 ) {
   var arrOfArrowForDisplay = Array.from(arrowForDisplay);
-  console.dir(radioBtnThatControlsDisplayPanel);
+
   arrOfArrowForDisplay.forEach(function addEventToEachArrowContainer(
     eachContainer
   ) {
@@ -326,3 +391,5 @@ function commentsAndStuff() {
   //   }
   // });
 }
+
+/* using js for both profile clicked and arrow clicked*/
