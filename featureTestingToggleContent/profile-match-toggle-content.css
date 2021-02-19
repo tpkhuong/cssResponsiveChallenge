@@ -370,7 +370,7 @@ input[id="non-profit"]:checked ~ .label-container .high-lighted-label {
 
 input[id="sponsors"]:checked ~ .label-container .high-lighted-label {
   width: 8.7em;
-  transform: translateX(19.3em);
+  transform: translateX(19.2em);
 }
 /* input[id="volunteer"]:checked ~ .label-container  */
 
@@ -388,7 +388,7 @@ input[name*="toggle"] {
   margin-top: 1rem;
 }
 
-.displays__container > [id^="display-"] {
+.displays__container > [id$="-displays"] {
   position: absolute;
   top: 0;
   right: 0;
@@ -396,22 +396,22 @@ input[name*="toggle"] {
   left: 0;
 }
 
-[id="display-one"] {
+[id="volunteer-displays"] {
   border: 2px solid red;
   /* font-size: 3em; */
 }
-[id="display-two"] {
+[id="nonprofit-displays"] {
   border: 2px solid purple;
 }
-[id="display-three"] {
+[id="sponsors-displays"] {
   border: 2px solid green;
 }
 
 /* switch between display containers (article element) depending on which toggle is checked */
 
-input[id="volunteer"]:checked ~ .displays__container [id="display-one"],
-input[id="non-profit"]:checked ~ .displays__container [id="display-two"],
-input[id="sponsors"]:checked ~ .displays__container [id="display-three"] {
+input[id="volunteer"]:checked ~ .displays__container [id="volunteer-displays"],
+input[id="non-profit"]:checked ~ .displays__container [id="nonprofit-displays"],
+input[id="sponsors"]:checked ~ .displays__container [id="sponsors-displays"] {
   /* works */
   z-index: 50;
 }
