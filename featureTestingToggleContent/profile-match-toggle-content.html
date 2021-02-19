@@ -14,25 +14,30 @@
     <section class="testimonials">
       <div class="wrapper">
         <div class="toggle-container">
-          <input aria-labelledby="volunteer panel" name="toggle-between-containers" type="radio" id="volunteer" checked>
-          <input aria-labelledby="non-profit panel" name="toggle-between-containers" type="radio" id="non-profit">
-          <input aria-labelledby="sponsors panel" name="toggle-between-containers" type="radio" id="sponsors">
+          <input aria-labelledby="volunteer-panel" name="toggle-between-containers" type="radio" id="volunteer" checked>
+          <input aria-labelledby="non-profit-panel" name="toggle-between-containers" type="radio" id="non-profit">
+          <input aria-labelledby="sponsors-panel" name="toggle-between-containers" type="radio" id="sponsors">
           <div class="label-container">
             <!-- id on our <label> elements are matching the aria-labelledby in the input -->
             <!-- aria-label the screen reader will read it -->
-            <label id="volunteer panel" aria-label="showing volunteer panel, use right arrow to show non-profit panel" for="volunteer">Volunteer<span></span></label>
-            <label id="non-profit panel" aria-label="showing non-profit panel, use left arrow to show volunteer panel, use right arrow to show sponsors panel" for="non-profit">Non-Profit</label>
-            <label id="sponsors panel" aria-label="showing sponsors panel, use left arrow to show non-profit panel" for="sponsors">Sponsors</label>
+            <label id="volunteer-panel" aria-label="showing volunteer panel, use right arrow to show non-profit panel" for="volunteer">Volunteer<span></span></label>
+            <label id="non-profit-panel" aria-label="showing non-profit panel, use left arrow to show volunteer panel, use right arrow to show sponsors panel" for="non-profit">Non-Profit</label>
+            <label id="sponsors-panel" aria-label="showing sponsors panel, use left arrow to show non-profit panel" for="sponsors">Sponsors</label>
             <span class="high-lighted-label"></span>
           </div>
           <div class="displays__container">
             
-            <article id="display-one" class="testimonials__displays">
+            <article id="volunteer-displays" class="testimonials__displays">
               <!-- id on our <label> elements are matching the aria-labelledby in the input -->
               <!-- aria-label the screen reader will read it -->
-              <input aria-labelledby="" type="radio" id="one-display" name="switch-between-profile-display">
-              <input aria-labelledby="" type="radio" id="two-display" name="switch-between-profile-display">
-              <input aria-labelledby="" type="radio" id="three-display" name="switch-between-profile-display">
+              <!-- 
+id="one-display"
+ id="two-display"
+ id="three-display"
+               -->
+              <input aria-labelledby="first-profile-display" type="radio"  name="volunteer-profile-display">
+              <input aria-labelledby="second-profile-display" type="radio" name="volunteer-profile-display">
+              <input aria-labelledby="third-profile-display" type="radio"  name="volunteer-profile-display">
               <div class="arrow-container">
                 <span class="left-arrow">&#60;</span>
                 <span class="right-arrow">&#62;</span>
@@ -70,10 +75,10 @@
                   <p class="display-role">Software Engineer</p>
                 </div>
             </article>
-            <article id="display-two" class="testimonials__displays">
-              <input type="radio" id="one-display" name="displays">
-              <input type="radio" id="two-display" name="displays">
-              <input type="radio" id="three-display" name="displays">
+            <article id="nonprofit-displays" class="testimonials__displays">
+              <input type="radio" name="non-profit-profile-display">
+              <input type="radio" name="non-profit-profile-display">
+              <input type="radio" name="non-profit-profile-display">
               <div class="arrow-container">
                 <span class="left-arrow">&#60;</span>
                 <span class="right-arrow">&#62;</span>
@@ -111,10 +116,10 @@
                   <p class="display-role">Software Engineer</p>
                 </div>
             </article>
-            <article id="display-three" class="testimonials__displays">
-              <input type="radio" id="one-display" name="displays">
-              <input type="radio" id="two-display" name="displays">
-              <input type="radio" id="three-display" name="displays">
+            <article id="sponsors-displays" class="testimonials__displays">
+              <input type="radio" name="sponsors-profile-display">
+              <input type="radio" name="sponsors-profile-display">
+              <input type="radio" name="sponsors-profile-display">
               <div class="arrow-container">
                 <span class="left-arrow">&#60;</span>
                 <span class="right-arrow">&#62;</span>
@@ -158,7 +163,7 @@
           <!-- id on our <label> elements are matching the aria-labelledby in the input -->
               <!-- aria-label the screen reader will read it -->
           <!-- <a href="#first-display"> </a> -->
-          <label id="" aria-label="" for="one-display">
+          <label id="first-profile-display" aria-label="showing first profile display" for="one-display">
             <div id="first-profile" class="testimonial__profile flow-content">
               
                 <img src="https://source.unsplash.com/random/400x100" alt="" />
@@ -174,7 +179,7 @@
             </div>
           </label>
 
-          <label id="" aria-label="" for="two-display">
+          <label id="second-profile-display" aria-label="showing second profile display" for="two-display">
             <div id="second-profile" class="testimonial__profile flow-content">
               <img src="https://source.unsplash.com/random/400x100" alt="" />
               <p>
@@ -189,7 +194,7 @@
           </label>
           <!-- <a href="#second-display">
           </a> -->
-          <label id="" aria-label="" for="three-display">
+          <label id="third-profile-display" aria-label="showing third profile display" for="three-display">
             <div id="third-profile" class="testimonial__profile flow-content">
               <img src="https://source.unsplash.com/random/400x100" alt="" />
               <p>
