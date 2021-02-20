@@ -400,7 +400,7 @@ input[name*="toggle"] {
   border: 2px solid red;
   /* font-size: 3em; */
 }
-[id="nonprofit-displays"] {
+[id="non-profit-displays"] {
   border: 2px solid purple;
 }
 [id="sponsors-displays"] {
@@ -468,3 +468,11 @@ input[id="sponsors"]:checked ~ .displays__container [id="sponsors-displays"] {
 \201C: left quote symbol
 \201E: right quote symbol
 */
+
+/* we want to apply this class to the article element with testimonials__displays on the two element we dont want to show.
+the radio btn checked will determine with element get this class. the checked radio btn which will select the article display panel will not have this class
+the other two elements (non-profit and sponsors)
+*/
+.display-none {
+  display: none;
+}
