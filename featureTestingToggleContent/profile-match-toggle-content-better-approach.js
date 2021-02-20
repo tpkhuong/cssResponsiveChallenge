@@ -8,15 +8,19 @@
 get height and width of target.element
 */
 function ourSelectors() {
-  var selectTheArticle = document.querySelector(".testimonial__profiles");
+  // var selectTheArticle = document.querySelector(".testimonial__profiles");
   /* might not have to use the selector below */
-  var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
+  // var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
   /* target element is the article/container containing all the div with the class: __displays*/
-  var displayElements = document.querySelectorAll(".testimonials__display");
+  // var displayElements = document.querySelectorAll(".testimonials__display");
   /* when we were selecting our arrow container using document.querySelector, our function arrowDisplayProfileFunctionalityWithRadioButton
   did not work because we were selecting ONLY one of the arrow-container. Since we have THREE div element container holding our displays(article elements)
   we have to select all of the arrow container in each of our article element with the class testimonials__displays
   */
+  /***** selecting our article/display panels *****/
+  var articleDisplayPanels = document.querySelectorAll(
+    ".testimonials__displays"
+  );
   var arrowForDisplay = document.querySelectorAll(".arrow-container");
   /* we didnt have to change the radio selector because we were already using document.querySelectorAll to select those radio buttons. */
   /****** select radio btns inside id=display-one *******/
@@ -25,87 +29,25 @@ function ourSelectors() {
   );
   /****** select radio btns inside id=display-two *******/
   /****** select radio btns inside id=display-three *******/
-  var selectRadioButtons = document.querySelectorAll("[name='displays']");
+  // var selectRadioButtons = document.querySelectorAll("[name='displays']");
+
   /*select the radio button that switched between the display container*/
   var radioBtnThatControlsDisplayPanel = document.querySelectorAll(
     "[name='toggle-between-containers']"
   );
   return {
-    selectTheArticle,
-    selectTheProfiles,
-    displayElements,
     arrowForDisplay,
-    selectRadioButtons,
+    articleDisplayPanels,
     radioBtnThatControlsDisplayPanel,
     nonprofitRadioBtnInsideDisplayPanel,
   };
 }
 
-var selectTheArticle = document.querySelector(".testimonial__profiles");
-/* might not have to use the selector below */
-var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
-/* target element is the article/container containing all the div with the class: __displays*/
-var displayElements = document.querySelector(".testimonials__displays");
-
-function showDisplayOnProfileClicked(
-  { selectTheArticle, displayElements } = ourSelectors()
-) {
-  selectTheArticle.addEventListener("click", function getInfo(event) {
-    /*element in the convert array we want to change the z-index*/
-    var arrOfDisplays = Array.from(displayElements);
-    // var arrOfDisplays = convertCollectionToArr.slice(1);
-    /*elements in the makeToArray we want to */
-    // var makeToArray = Array.from(selectTheProfiles);
-
-    var [checkThisStr, secondStr] = event.target.parentElement.id.split("-");
-    var [checkParentElementStr, secondPartOfParentStr] = event.target.id.split(
-      "-"
-    );
-    // var parentElementWithTestimonialsProfileClass = event.target.className;
-    // console.dir(event.target);
-    // console.log(checkThisStr);
-    if (
-      event.target.id.includes("-profile") &&
-      event.target.className.includes("testimonial__profile")
-    ) {
-      arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
-        if (eachElement.id.includes(checkParentElementStr)) {
-          /* toggle show and hidden class which will change the z-index*/
-
-          eachElement.classList.add("show");
-        } else {
-          eachElement.classList.remove("show");
-          /*hidden in our css file is below the show declartion.*/
-          // eachElement.classList.add("hidden");
-        }
-        /*if we clicked on parent/div element containing the div element(profiles)*/
-      });
-    } else {
-      // console.log(parentElementWithTestimonialsProfileClass);
-      arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
-        if (eachElement.id.includes(checkThisStr)) {
-          /* toggle show and hidden class which will change the z-index*/
-          eachElement.classList.add("show");
-        } else {
-          eachElement.classList.remove("show");
-          /*hidden in our css file is below the show declartion.*/
-          // eachElement.classList.add("hidden");
-        }
-        /*if we clicked on parent/div element containing the div element(profiles)*/
-      });
-    }
-  });
-}
-
-// showDisplayOnProfileClicked();
-// arrowDisplayProfileFunctionality();
-
-// arrowDisplayProfileFunctionalityWithRadioButton();
-
 radioBtnFuntionalityBasedOnPanelSelected();
 
 function radioBtnFuntionalityBasedOnPanelSelected(
   {
+    articleDisplayPanels,
     radioBtnThatControlsDisplayPanel,
     nonprofitRadioBtnInsideDisplayPanel,
   } = ourSelectors()
@@ -125,7 +67,18 @@ function radioBtnFuntionalityBasedOnPanelSelected(
       wordToMatchThePanel = radioBtn.id;
     }
   });
+  console.log(radioBtnChecked);
+  console.log(wordToMatchThePanel);
+  /***** apply class display none based on radio btn clicked on load *****/
+  applyDisplayNoneBasedOnRadioBtnChecked(
+    wordToMatchThePanel,
+    articleDisplayPanels
+  );
+  /***** apply class display none based on radio btn clicked on load *****/
 
+  /***** apply attributes to input of article/displayPanel based on load *****/
+  addAttributesToInputElement(wordToMatchThePanel, articleDisplayPanels);
+  /***** apply attributes to input of article/displayPanel based on load *****/
   listOfRadioBtnsConvertToArr.forEach(function findTheCheckedRadioBtn(
     eachRadioBtn
   ) {
@@ -138,26 +91,104 @@ function radioBtnFuntionalityBasedOnPanelSelected(
           radioBtnChecked = eachRadioBtn;
           wordToMatchThePanel = eachRadioBtn.id;
         }
+        /***** apply class display none based on radio btn clicked/change *****/
+        applyDisplayNoneBasedOnRadioBtnChecked(
+          wordToMatchThePanel,
+          articleDisplayPanels
+        );
+        /***** apply class display none based on radio btn clicked/change *****/
+        /***** apply attributes to input of article/displayPanel based on radio btn clicked/change *****/
+        addAttributesToInputElement(wordToMatchThePanel, articleDisplayPanels);
+        /***** apply attributes to input of article/displayPanel based on radio btn clicked/change *****/
         console.log(radioBtnChecked);
         console.log(wordToMatchThePanel);
       }
     );
   });
+
+  /**** come back to this
   var [firstRadionBtn, secondRadioBtn, thirdRadion] = listOfNonprofitRadioBtn;
 
   switch (wordToMatchThePanel) {
     case "non-profit":
+      /* we also will add these attibutes according to the panel selected by the radio btns
+      aria-labelledby="first-profile-display"
+      aria-labelledby="second-profile-display"
+      aria-labelledby="third-profile-display"
+      
       firstRadionBtn.setAttribute("id", "one-display");
       secondRadioBtn.setAttribute("id", "two-display");
-      thirdRadion.setAttribute("id", "three-display");
-  }
-  console.log(radioBtnChecked);
-  console.log(wordToMatchThePanel);
+      thirdRadioBtn.setAttribute("id", "three-display");
+  }*/
 }
 
 /***** helper function *****/
 
-function changeDisplayBasedOnRadioBtnChecked() {}
+function applyDisplayNoneBasedOnRadioBtnChecked(
+  matchThisStr,
+  arrOfDisplayPanels
+) {
+  var convertToArrayDisplayPanels = Array.from(arrOfDisplayPanels);
+  var [
+    volunteerPanel,
+    nonprofitPanel,
+    sponsorsPanel,
+  ] = convertToArrayDisplayPanels;
+
+  switch (matchThisStr) {
+    case "volunteer":
+      volunteerPanel.classList.remove("display-none");
+      nonprofitPanel.classList.add("display-none");
+      sponsorsPanel.classList.add("display-none");
+      break;
+    case "non-profit":
+      nonprofitPanel.classList.remove("display-none");
+      volunteerPanel.classList.add("display-none");
+      sponsorsPanel.classList.add("display-none");
+      break;
+    case "sponsors":
+      sponsorsPanel.classList.remove("display-none");
+      volunteerPanel.classList.add("display-none");
+      nonprofitPanel.classList.add("display-none");
+  }
+}
+
+function addAttributesToInputElement(matchThisWordStr, arrOfArticlePanels) {
+  var objOfArticle = {
+    // "aria-labelledby":
+  };
+  var idOfArticleDisplayPanelParentOfInputBtn;
+
+  arrOfArticlePanels.forEach(function findTheMatchingId(eachPanel) {
+    if (eachPanel.id.includes(matchThisWordStr)) {
+      idOfArticleDisplayPanelParentOfInputBtn = eachPanel.id;
+    }
+  });
+  /***** select radio btn based on id of article display panel *****/
+  var radioInputOfArticlePanelToAddAttributes = Array.from(
+    document.querySelectorAll(
+      `#${idOfArticleDisplayPanelParentOfInputBtn} [name='${matchThisWordStr}-profile-display']`
+    )
+  );
+  /***** select radio btn based on id of article display panel *****/
+  var [
+    firstRadioInput,
+    secondRadioInput,
+    thirdRadioInput,
+  ] = radioInputOfArticlePanelToAddAttributes;
+
+  firstRadioInput.setAttribute("id", "one-display");
+  secondRadioInput.setAttribute("id", "two-display");
+  thirdRadioInput.setAttribute("id", "three-display");
+
+  firstRadioInput.setAttribute("aria-labelledby", "first-profile-display");
+  secondRadioInput.setAttribute("aria-labelledby", "second-profile-display");
+  thirdRadioInput.setAttribute("aria-labelledby", "third-profile-display");
+  // console.log(radioInputOfArticlePanelToAddAttributes);
+  // console.log(idOfArticleDisplayPanelParentOfInputBtn);
+}
+
+function removeAttributesFromInputElement() {}
 
 /* using radio button and using js for arrow funtionality with radio buttons */
 /* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display contaienr: either volunteer, non-profit or sponsors */
@@ -249,6 +280,67 @@ function rightArrowClickedRadioButton(indexInput, arrInput) {
       break;
   }
 }
+
+// var selectTheArticle = document.querySelector(".testimonial__profiles");
+/* might not have to use the selector below */
+// var selectTheProfiles = document.querySelectorAll(".testimonial__profile");
+/* target element is the article/container containing all the div with the class: __displays*/
+// var displayElements = document.querySelector(".testimonials__displays");
+
+// function showDisplayOnProfileClicked(
+//   { selectTheArticle, displayElements } = ourSelectors()
+// ) {
+//   selectTheArticle.addEventListener("click", function getInfo(event) {
+//     /*element in the convert array we want to change the z-index*/
+//     var arrOfDisplays = Array.from(displayElements);
+//     // var arrOfDisplays = convertCollectionToArr.slice(1);
+//     /*elements in the makeToArray we want to */
+//     // var makeToArray = Array.from(selectTheProfiles);
+
+//     var [checkThisStr, secondStr] = event.target.parentElement.id.split("-");
+//     var [checkParentElementStr, secondPartOfParentStr] = event.target.id.split(
+//       "-"
+//     );
+//     // var parentElementWithTestimonialsProfileClass = event.target.className;
+//     // console.dir(event.target);
+//     // console.log(checkThisStr);
+//     if (
+//       event.target.id.includes("-profile") &&
+//       event.target.className.includes("testimonial__profile")
+//     ) {
+//       arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
+//         if (eachElement.id.includes(checkParentElementStr)) {
+//           /* toggle show and hidden class which will change the z-index*/
+
+//           eachElement.classList.add("show");
+//         } else {
+//           eachElement.classList.remove("show");
+//           /*hidden in our css file is below the show declartion.*/
+//           // eachElement.classList.add("hidden");
+//         }
+//         /*if we clicked on parent/div element containing the div element(profiles)*/
+//       });
+//     } else {
+//       // console.log(parentElementWithTestimonialsProfileClass);
+//       arrOfDisplays.forEach(function moveElementToTheFront(eachElement) {
+//         if (eachElement.id.includes(checkThisStr)) {
+//           /* toggle show and hidden class which will change the z-index*/
+//           eachElement.classList.add("show");
+//         } else {
+//           eachElement.classList.remove("show");
+//           /*hidden in our css file is below the show declartion.*/
+//           // eachElement.classList.add("hidden");
+//         }
+//         /*if we clicked on parent/div element containing the div element(profiles)*/
+//       });
+//     }
+//   });
+// }
+
+// showDisplayOnProfileClicked();
+// arrowDisplayProfileFunctionality();
+
+// arrowDisplayProfileFunctionalityWithRadioButton();
 
 /* using js for both profile clicked and arrow clicked*/
 
