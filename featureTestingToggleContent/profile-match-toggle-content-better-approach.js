@@ -97,9 +97,18 @@ function radioBtnFuntionalityBasedOnPanelSelected(
           articleDisplayPanels
         );
         /***** apply class display none based on radio btn clicked/change *****/
+
         /***** apply attributes to input of article/displayPanel based on radio btn clicked/change *****/
         addAttributesToInputElement(wordToMatchThePanel, articleDisplayPanels);
         /***** apply attributes to input of article/displayPanel based on radio btn clicked/change *****/
+
+        /***** remove attributes to input of article/displayPanel based on radio btn clicked/change *****/
+        removeAttributesFromInputElement(
+          wordToMatchThePanel,
+          articleDisplayPanels
+        );
+        /***** remove attributes to input of article/displayPanel based on radio btn clicked/change *****/
+
         console.log(radioBtnChecked);
         console.log(wordToMatchThePanel);
       }
@@ -154,12 +163,12 @@ function applyDisplayNoneBasedOnRadioBtnChecked(
 }
 
 function addAttributesToInputElement(matchThisWordStr, arrOfArticlePanels) {
-  var objOfArticle = {
-    // "aria-labelledby":
-  };
+  // var objOfArticle = {
+  //   "aria-labelledby":
+  // };
   var idOfArticleDisplayPanelParentOfInputBtn;
-
-  arrOfArticlePanels.forEach(function findTheMatchingId(eachPanel) {
+  // console.dir(Array.from(arrOfArticlePanels));
+  Array.from(arrOfArticlePanels).forEach(function findTheMatchingId(eachPanel) {
     if (eachPanel.id.includes(matchThisWordStr)) {
       idOfArticleDisplayPanelParentOfInputBtn = eachPanel.id;
     }
@@ -188,7 +197,44 @@ function addAttributesToInputElement(matchThisWordStr, arrOfArticlePanels) {
   // console.log(idOfArticleDisplayPanelParentOfInputBtn);
 }
 
-function removeAttributesFromInputElement() {}
+function removeAttributesFromInputElement(
+  wordWeWantToMatch,
+  arrOfDisplayPanelsArticleElements
+) {
+  /***** we want to select the two article/display panels or just the id attribute of the two elements that does not match the radio btn with the checked attribute set to true that changes based on which toggle user select *****/
+  var arrOfIdOfTheTwoElementWeWantToUseToSelectInput = Array.from(
+    arrOfDisplayPanelsArticleElements
+  ).reduce(function getArrThatDoesNotMatchStr(buildingUp, currentValue) {
+    if (currentValue.id.includes(wordWeWantToMatch)) {
+      return buildingUp;
+    } else {
+      var strWithoutDisplayToUseInDocumentSelectorAll = currentValue.id.split(
+        "-displays"
+      )[0];
+      return [...buildingUp, strWithoutDisplayToUseInDocumentSelectorAll];
+    }
+  }, []);
+  console.log(arrOfIdOfTheTwoElementWeWantToUseToSelectInput);
+  /***** we want to select the two article/display panels that does not match the radio btn with the checked attribute set to true that changes based on which toggle user select *****/
+
+  /***** select radio btn based on id of article display panel *****/
+  // should we put all six input radio btn that does not match the word str of the selected toggle radio btn in array then we can loop through all six and remove the attributes
+  var arrSixInputRadioBtnToRemoveAttribute = arrOfIdOfTheTwoElementWeWantToUseToSelectInput.reduce(
+    function getTheSixRadioBtnInput(buildingUp, currentValue) {
+      var radioBtnInputOfDisplayPanel = document.querySelectorAll(
+        `#${currentValue}-displays [name='${currentValue}-profile-display']`
+      );
+      /***** does using spread on nodeList(array like object) convert it into an array *****/
+      return [...buildingUp, ...radioBtnInputOfDisplayPanel];
+    },
+    []
+  );
+  // console.log(arrSixInputRadioBtnToRemoveAttribute);
+  /***** select radio btn based on id of article display panel *****/
+  /***** we want to loop through the array of six input radio btn and remove attributes *****/
+
+  /***** we want to loop through the array of six input radio btn and remove attributes *****/
+}
 
 /* using radio button and using js for arrow funtionality with radio buttons */
 /* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display contaienr: either volunteer, non-profit or sponsors */
