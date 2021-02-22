@@ -224,7 +224,7 @@ function removeAttributesFromInputElement(
       var radioBtnInputOfDisplayPanel = document.querySelectorAll(
         `#${currentValue}-displays [name='${currentValue}-profile-display']`
       );
-      /***** does using spread on nodeList(array like object) convert it into an array *****/
+      /***** does using spread on nodeList(array like object) convert it into an array, since we are spreading it into an array. *****/
       return [...buildingUp, ...radioBtnInputOfDisplayPanel];
     },
     []
@@ -232,7 +232,12 @@ function removeAttributesFromInputElement(
   // console.log(arrSixInputRadioBtnToRemoveAttribute);
   /***** select radio btn based on id of article display panel *****/
   /***** we want to loop through the array of six input radio btn and remove attributes *****/
-
+  arrSixInputRadioBtnToRemoveAttribute.forEach(
+    function removeAttributeFromSixRadioInputs(eachRadioInput) {
+      eachRadioInput.removeAttribute("id");
+      eachRadioInput.removeAttribute("aria-labelledby");
+    }
+  );
   /***** we want to loop through the array of six input radio btn and remove attributes *****/
 }
 

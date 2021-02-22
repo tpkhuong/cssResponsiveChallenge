@@ -299,7 +299,7 @@ we need the arrow to be an element in the DOM so we can select it with JS
 } */
 
 /* radio input */
-
+/***** WHEN WE DECLARE TRANSFROM: TRANSLATEY(-1000PX) TO MOVE THE RADIO BTN OUT OF THE VIEWPORT THE SCREEN READER WILL STILL READ IT. WOOT! *****/
 input[type="radio"] {
   /* display: none; */
   /* position: absolute; */
