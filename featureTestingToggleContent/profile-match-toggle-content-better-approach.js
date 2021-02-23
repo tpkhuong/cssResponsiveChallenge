@@ -7,6 +7,9 @@
 /*
 get height and width of target.element
 */
+alert(
+  "we have the index of the radio btn selected(profile display). next we will work on left arrow and right arrow functionality"
+);
 function ourSelectors() {
   // var selectTheArticle = document.querySelector(".testimonial__profiles");
   /* might not have to use the selector below */
@@ -39,25 +42,20 @@ function ourSelectors() {
     arrowForDisplay,
     articleDisplayPanels,
     radioBtnThatControlsDisplayPanel,
-    nonprofitRadioBtnInsideDisplayPanel,
   };
 }
 
 radioBtnFuntionalityBasedOnPanelSelected();
 
 function radioBtnFuntionalityBasedOnPanelSelected(
-  {
-    articleDisplayPanels,
-    radioBtnThatControlsDisplayPanel,
-    nonprofitRadioBtnInsideDisplayPanel,
-  } = ourSelectors()
+  { articleDisplayPanels, radioBtnThatControlsDisplayPanel } = ourSelectors()
 ) {
   var radioBtnChecked;
   var wordToMatchThePanel;
   var listOfRadioBtnsConvertToArr = Array.from(
     radioBtnThatControlsDisplayPanel
   );
-  var listOfNonprofitRadioBtn = Array.from(nonprofitRadioBtnInsideDisplayPanel);
+  // var listOfNonprofitRadioBtn = Array.from(nonprofitRadioBtnInsideDisplayPanel);
 
   listOfRadioBtnsConvertToArr.forEach(function findRadioBtnWithChecked(
     radioBtn
@@ -76,9 +74,20 @@ function radioBtnFuntionalityBasedOnPanelSelected(
   );
   /***** apply class display none based on radio btn clicked on load *****/
 
-  /***** apply attributes to input of article/displayPanel based on load *****/
+  /***** apply attributes to input of article/displayPanel on load *****/
   addAttributesToInputElement(wordToMatchThePanel, articleDisplayPanels);
-  /***** apply attributes to input of article/displayPanel based on load *****/
+  /***** apply attributes to input of article/displayPanel on load *****/
+
+  /***** remove attributes to input of article/displayPanel on load *****/
+  removeAttributesFromInputElement(wordToMatchThePanel, articleDisplayPanels);
+
+  /***** remove attributes to input of article/displayPanel on load *****/
+
+  /***** select the arrow container of article/displayPanel on load  *****/
+  arrowDisplayProfileBasedOnPanelSelected(wordToMatchThePanel);
+  /***** select the arrow container of article/displayPanel on load  *****/
+
+  /***** getting the id of the radio button that is checked. it is the three toggle top of page.(volunteer, non-profit, sponsors) *****/
   listOfRadioBtnsConvertToArr.forEach(function findTheCheckedRadioBtn(
     eachRadioBtn
   ) {
@@ -109,11 +118,15 @@ function radioBtnFuntionalityBasedOnPanelSelected(
         );
         /***** remove attributes to input of article/displayPanel based on radio btn clicked/change *****/
 
+        /***** select the arrow container of article/displayPanel on radio btn clicked/change  *****/
+        arrowDisplayProfileBasedOnPanelSelected(wordToMatchThePanel);
+        /***** select the arrow container of article/displayPanel on radio btn clicked/change  *****/
         console.log(radioBtnChecked);
         console.log(wordToMatchThePanel);
       }
     );
   });
+  /***** getting the id of the radio button that is checked. it is the three toggle top of page.(volunteer, non-profit, sponsors) *****/
 
   /**** come back to this
   var [firstRadionBtn, secondRadioBtn, thirdRadion] = listOfNonprofitRadioBtn;
@@ -241,8 +254,39 @@ function removeAttributesFromInputElement(
   /***** we want to loop through the array of six input radio btn and remove attributes *****/
 }
 
+function arrowDisplayProfileBasedOnPanelSelected(
+  strToUseToFindArticlePanelSelected
+) {
+  var inputRadioBtnOfDisplayPanelSelected = Array.from(
+    document.querySelectorAll(
+      `#${strToUseToFindArticlePanelSelected}-displays [name=${strToUseToFindArticlePanelSelected}-profile-display]`
+    )
+  );
+
+  var arrowContainerOfDisplayPanelSelected = document.querySelector(
+    `#${strToUseToFindArticlePanelSelected}-displays .arrow-container`
+  );
+  var indexOfRadioBtnChecked;
+  inputRadioBtnOfDisplayPanelSelected.forEach(function findIndexOfCheckedTrue(
+    eachRadioBtn,
+    index
+  ) {
+    if (eachRadioBtn.checked) {
+      indexOfRadioBtnChecked = index;
+    }
+  });
+  console.log(indexOfRadioBtnChecked);
+  arrowContainerOfDisplayPanelSelected.addEventListener(
+    "click",
+    function listenToWhichArrowIsClicked(event) {
+      console.log(event.target);
+    }
+  );
+  console.dir(inputRadioBtnOfDisplayPanelSelected);
+}
+
 /* using radio button and using js for arrow funtionality with radio buttons */
-/* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display contaienr: either volunteer, non-profit or sponsors */
+/* make our algorithm work dynamic. we have to select the radio buttons and the arrow depending on the display container: either volunteer, non-profit or sponsors */
 function arrowDisplayProfileFunctionalityWithRadioButton(
   {
     arrowForDisplay,
@@ -291,46 +335,46 @@ function arrowDisplayProfileFunctionalityWithRadioButton(
   });
 }
 
-function leftArrowClickedRadioButton(indexInput, arrInput) {
-  var [firstRadioBtn, secondRadioBtn, thirdRadioBtn] = arrInput;
-  switch (indexInput) {
-    case 0:
-      thirdRadioBtn.checked = true;
-      firstRadioBtn.checked = false;
-      secondRadioBtn.checked = false;
-      break;
-    case 1:
-      firstRadioBtn.checked = true;
-      secondRadioBtn.checked = false;
-      thirdRadioBtn.checked = false;
-      break;
-    case 2:
-      secondRadioBtn.checked = true;
-      firstRadioBtn.checked = false;
-      thirdRadioBtn.checked = false;
-      break;
-  }
-}
-function rightArrowClickedRadioButton(indexInput, arrInput) {
-  var [firstRadioBtn, secondRadioBtn, thirdRadioBtn] = arrInput;
-  switch (indexInput) {
-    case 0:
-      secondRadioBtn.checked = true;
-      firstRadioBtn.checked = false;
-      thirdRadioBtn.checked = false;
-      break;
-    case 1:
-      thirdRadioBtn.checked = true;
-      firstRadioBtn.checked = false;
-      secondRadioBtn.checked = false;
-      break;
-    case 2:
-      firstRadioBtn.checked = true;
-      secondRadioBtn.checked = false;
-      thirdRadioBtn.checked = false;
-      break;
-  }
-}
+// function leftArrowClickedRadioButton(indexInput, arrInput) {
+//   var [firstRadioBtn, secondRadioBtn, thirdRadioBtn] = arrInput;
+//   switch (indexInput) {
+//     case 0:
+//       thirdRadioBtn.checked = true;
+//       firstRadioBtn.checked = false;
+//       secondRadioBtn.checked = false;
+//       break;
+//     case 1:
+//       firstRadioBtn.checked = true;
+//       secondRadioBtn.checked = false;
+//       thirdRadioBtn.checked = false;
+//       break;
+//     case 2:
+//       secondRadioBtn.checked = true;
+//       firstRadioBtn.checked = false;
+//       thirdRadioBtn.checked = false;
+//       break;
+//   }
+// }
+// function rightArrowClickedRadioButton(indexInput, arrInput) {
+//   var [firstRadioBtn, secondRadioBtn, thirdRadioBtn] = arrInput;
+//   switch (indexInput) {
+//     case 0:
+//       secondRadioBtn.checked = true;
+//       firstRadioBtn.checked = false;
+//       thirdRadioBtn.checked = false;
+//       break;
+//     case 1:
+//       thirdRadioBtn.checked = true;
+//       firstRadioBtn.checked = false;
+//       secondRadioBtn.checked = false;
+//       break;
+//     case 2:
+//       firstRadioBtn.checked = true;
+//       secondRadioBtn.checked = false;
+//       thirdRadioBtn.checked = false;
+//       break;
+//   }
+// }
 
 // var selectTheArticle = document.querySelector(".testimonial__profiles");
 /* might not have to use the selector below */
