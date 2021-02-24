@@ -27,11 +27,22 @@ document
       //   closeBtn.setAttribute("tabindex", "0");
       //   closeBtn.focus();
       videoElement.pause();
-      document.querySelector(".uabb-button.uabb-creative-button").focus();
+      document
+        .querySelector(".title-text.pp-primary-title")
+        .setAttribute("tabindex", "0");
+      document.querySelector(".title-text.pp-primary-title").focus();
+      //   document.querySelector(".uabb-button.uabb-creative-button").focus();
       //   console.log(document.querySelector(":focus"));
     }
     if (event.key == "Tab" || event.code == "Tab" || event.keyCode == 9) {
+      /***** we have to use event.preventDefault() so when we hit tab key it does select the next tabable element *****/
+      // event.preventDefault();
+      /***** we have to use event.preventDefault() so when we hit tab key it does select the next tabable element *****/
       videoElement.pause();
+      document
+        .querySelector(".title-text.pp-primary-title")
+        .setAttribute("tabindex", "0");
+      document.querySelector(".title-text.pp-primary-title").focus();
       /*hitting tab key will pause video and select next focusable element*/
       console.log(event);
       console.log("we hit the tab key");
