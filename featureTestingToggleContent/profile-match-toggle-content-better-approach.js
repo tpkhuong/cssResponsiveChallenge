@@ -7,7 +7,7 @@
 /*
 get height and width of target.element
 */
-alert("we have the span element we want to remove the event listeners");
+
 function ourSelectors() {
   // var selectTheArticle = document.querySelector(".testimonial__profiles");
   /* might not have to use the selector below */
@@ -30,7 +30,7 @@ function ourSelectors() {
   );
 
   var elementToApplyListenEventForArrowKeyboard = document.querySelector(
-    ".testimonials"
+    ".wrapper"
   );
   /****** select radio btns inside id=display-two *******/
   /****** select radio btns inside id=display-three *******/
@@ -86,8 +86,12 @@ function radioBtnFuntionalityBasedOnPanelSelected(
 
   /***** remove attributes to input of article/displayPanel on load *****/
 
-  /***** when have to check which profile display has checked:true on load *****/
-  /***** when have to check which profile display has checked:true on load *****/
+  /***** we have to check which profile display has checked:true on load *****/
+  /***** we have to check which profile display has checked:true on load *****/
+
+  /***** select a default profile display *****/
+  selectDefaultRadioBtnProfile(wordToMatchThePanel);
+  /***** select a default profile display *****/
 
   /***** select the arrow container of article/displayPanel on load  *****/
   arrowsOfDisplayProfileBasedOnPanelSelected(wordToMatchThePanel);
@@ -120,6 +124,7 @@ function radioBtnFuntionalityBasedOnPanelSelected(
         var indexOfRadioBtnProfileDisplay = radioBtnWithCheckedTrue(
           inputRadioBtnOfDisplayPanelSelected
         );
+
         console.log(
           `index of radio profile display: ${indexOfRadioBtnProfileDisplay}`
         );
@@ -144,8 +149,8 @@ function radioBtnFuntionalityBasedOnPanelSelected(
         );
         /***** remove attributes to input of article/displayPanel based on radio btn clicked/change *****/
 
-        /***** when have to check which profile display has checked:true on toggle change *****/
-        /***** when have to check which profile display has checked:true on toggle change *****/
+        /***** we have to check which profile display has checked:true on toggle change *****/
+        /***** we have to check which profile display has checked:true on toggle change *****/
 
         /***** select the arrow container of article/displayPanel on radio btn clicked/change  *****/
         arrowsOfDisplayProfileBasedOnPanelSelected(
@@ -153,12 +158,12 @@ function radioBtnFuntionalityBasedOnPanelSelected(
           indexOfRadioBtnProfileDisplay
         );
         /***** select the arrow container of article/displayPanel on radio btn clicked/change  *****/
-        /***** remove event listener on the arrow element of the two display panel not toggled *****/
+        /***** remove event listener on the arrow element of the two display panel not toggled by clone the element(which will not copy the addeventlistener) *****/
         removeEventListenersOnNonToggledPanels(
           wordToMatchThePanel,
           articleDisplayPanels
         );
-        /***** remove event listener on the arrow element of the two display panel not toggled *****/
+        /***** remove event listener on the arrow element of the two display panel not toggled by clone the element(which will not copy the addeventlistener) *****/
         /***** arrow switching profile display keyboard functionality on radio btn clicked/change*****/
         // arrowKeyboardSwitchingProfileDisplay(wordToMatchThePanel);
         /***** arrow switching profile display keyboard functionality on radio btn clicked/change*****/
@@ -318,39 +323,109 @@ function arrowsOfDisplayProfileBasedOnPanelSelected(
   var rightArrowOfDisplayPanelSelected = document.querySelector(
     `#${strToUseToFindArticlePanelSelected}-displays .arrow-container .right-arrow`
   );
+
   /************* new approach. add event listener to each arrow element individually. ***************/
+  // var arrOfArticleDisplay = document.querySelectorAll(
+  //   ".testimonials__displays"
+  // );
+
+  // function selectTheProfileDisplay(event) {
+  //   if (event.target.className.includes("left")) {
+  //     let classOfTestimonialsDisplay = event.target.parentElement.parentElement.className.split(
+  //       " "
+  //     )[0];
+  //     let idOfArticleDisplay = event.target.parentElement.parentElement.id.split(
+  //       "-displays"
+  //     )[0];
+  //     var arrOfDisplayPanelPassItToRemoveEvent = document.querySelectorAll(
+  //       `.${classOfTestimonialsDisplay}`
+  //     );
+  //     var inputRadioBtnOfDisplayPanelSelected = Array.from(
+  //       document.querySelectorAll(
+  //         `#${idOfArticleDisplay}-displays [name=${strToUseToFindArticlePanelSelected}-profile-display]`
+  //       )
+  //     );
+  //     var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
+  //       inputRadioBtnOfDisplayPanelSelected
+  //     );
+
+  //     leftArrowClickedRadioButton(
+  //       indexOfRadioBtnChecked,
+  //       inputRadioBtnOfDisplayPanelSelected
+  //     );
+  //     console.log("clicking left");
+  //     console.log(inputRadioBtnOfDisplayPanelSelected);
+  //     // console.log(classOfTestimonialsDisplay);
+  //     // console.log(idOfArticleDisplay);
+  //     // console.log(arrOfDisplayPanelPassItToRemoveEvent);
+  //     // console.log(
+  //     //   `index of radio btn checked: ${indexOfRadioBtnCheckWhenToggleChange}`
+  //     // );
+  //     // removeEventListenersOnNonToggledPanels(
+  //     //   idOfArticleDisplay,
+  //     //   arrOfDisplayPanelPassItToRemoveEvent
+  //     // );
+  //   } else {
+  //     let classOfTestimonialsDisplay = event.target.parentElement.parentElement.className.split(
+  //       " "
+  //     )[0];
+  //     let idOfArticleDisplay = event.target.parentElement.parentElement.id.split(
+  //       "-displays"
+  //     )[0];
+  //     var arrOfDisplayPanelPassItToRemoveEvent = document.querySelectorAll(
+  //       `.${classOfTestimonialsDisplay}`
+  //     );
+  //     var inputRadioBtnOfDisplayPanelSelected = Array.from(
+  //       document.querySelectorAll(
+  //         `#${idOfArticleDisplay}-displays [name=${strToUseToFindArticlePanelSelected}-profile-display]`
+  //       )
+  //     );
+  //     var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
+  //       inputRadioBtnOfDisplayPanelSelected
+  //     );
+  //     rightArrowClickedRadioButton(
+  //       indexOfRadioBtnChecked,
+  //       inputRadioBtnOfDisplayPanelSelected
+  //     );
+  //     console.log("clicking right");
+  //     console.log(inputRadioBtnOfDisplayPanelSelected);
+  //     // removeEventListenersOnNonToggledPanels(
+  //     //   idOfArticleDisplay,
+  //     //   arrOfDisplayPanelPassItToRemoveEvent,
+  //     //   selectTheProfileDisplay
+  //     // );
+  //   }
+  //   console.log(
+  //     `index of radio btn checked: ${indexOfRadioBtnCheckWhenToggleChange}`
+  //   );
+  // }
 
   leftArrowOfDisplayPanelSelected.addEventListener(
     "click",
     function selectTheProfileDisplay(event) {
-      console.log(
-        `index of radio btn checked: ${indexOfRadioBtnCheckWhenToggleChange}`
+      var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
+        inputRadioBtnOfDisplayPanelSelected
       );
-      //   var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
-      //     inputRadioBtnOfDisplayPanelSelected
-      //   );
-      //   leftArrowClickedRadioButton(
-      //     indexOfRadioBtnChecked,
-      //     inputRadioBtnOfDisplayPanelSelected
-      //   );
+
+      leftArrowClickedRadioButton(
+        indexOfRadioBtnChecked,
+        inputRadioBtnOfDisplayPanelSelected
+      );
     }
   );
   rightArrowOfDisplayPanelSelected.addEventListener(
     "click",
-    function switchTheProfileDisplay(event) {
-      console.log(
-        `index of radio btn checked: ${indexOfRadioBtnCheckWhenToggleChange}`
+    function selectTheProfileDisplay(event) {
+      var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
+        inputRadioBtnOfDisplayPanelSelected
       );
-
-      //   var indexOfRadioBtnChecked = radioBtnWithCheckedTrue(
-      //     inputRadioBtnOfDisplayPanelSelected
-      //   );
-      //   rightArrowClickedRadioButton(
-      //     indexOfRadioBtnChecked,
-      //     inputRadioBtnOfDisplayPanelSelected
-      //   );
+      rightArrowClickedRadioButton(
+        indexOfRadioBtnChecked,
+        inputRadioBtnOfDisplayPanelSelected
+      );
     }
   );
+
   /***** index of radio input with checked:true on load*****/
 
   // var indexOfRadioBtnChecked;
@@ -395,11 +470,21 @@ function arrowsOfDisplayProfileBasedOnPanelSelected(
   // console.dir(inputRadioBtnOfDisplayPanelSelected);
 }
 
+/***** get event listener function in arrowsOfDisplayProfileBasedOnPanelSelected function *****/
+// function useThisCallbackInRemoveEventFunc(nameOfEventListenerFunc) {
+//   return nameOfEventListenerFunc;
+// }
+/***** get event listener function in arrowsOfDisplayProfileBasedOnPanelSelected function *****/
+
 /***** remove event listeners on non toggled panels based on radio btn checked:true *****/
 function removeEventListenersOnNonToggledPanels(
   strToMatch,
   arrOfArticleDisplayPanels
 ) {
+  // strToMatch, arrOfArticleDisplayPanels, funcToRemove;
+  console.log(strToMatch);
+  console.log(arrOfArticleDisplayPanels);
+  // console.log(funcToRemove);
   /***** array of id we will use to select the article element non toggled *****/
   var arrOfIdOfArticlePanelsNotSelected = Array.from(
     arrOfArticleDisplayPanels
@@ -427,10 +512,49 @@ function removeEventListenersOnNonToggledPanels(
     []
   );
   /***** array of all the span element of the article display panels not toggle. we want to remove the event listeners on these elements *****/
-
-  console.dir(arrOfElementToRemoveEventListeners);
+  console.log(arrOfElementToRemoveEventListeners);
+  // console.log(funcToRemove);
+  /***** loop through and cloning each arrow element add the text and replace which will remove the event listener *****/
+  arrOfElementToRemoveEventListeners.forEach(function cloneElement(
+    eachSpanElement
+  ) {
+    var cloneELement = eachSpanElement.cloneNode();
+    if (cloneELement.className.includes("left")) {
+      cloneELement.innerText = "<";
+    } else {
+      cloneELement.innerText = ">";
+    }
+    console.log(eachSpanElement);
+    // var parentElementOfSpan = eachSpanElement.parentElement;
+    eachSpanElement.replaceWith(cloneELement);
+    // console.log(cloneELement);
+  });
+  /***** loop through and cloning each arrow element add the text and replace which will remove the event listener *****/
+  // console.dir(arrOfElementToRemoveEventListeners);
 }
 /***** remove event listeners on non toggled panels based on radio btn checked:true *****/
+
+/***** select default radio btn for profile display if non is selected *****/
+function selectDefaultRadioBtnProfile(strToUseToSelectRadioBtn) {
+  var arrOfRadioBtnProfile = Array.from(
+    document.querySelectorAll(
+      `#${strToUseToSelectRadioBtn}-displays [name='${strToUseToSelectRadioBtn}-profile-display']`
+    )
+  );
+  var [firstProfile, secondProfile, thirdProfile] = arrOfRadioBtnProfile;
+  var ourBoolean = arrOfRadioBtnProfile.every(function allElementCheckedFalse(
+    eachProfile
+  ) {
+    return !eachProfile.checked;
+  });
+
+  if (ourBoolean) {
+    firstProfile.checked = true;
+    secondProfile.checked = false;
+    thirdProfile.checked = false;
+  }
+}
+/***** select default radio btn for profile display if non is selected *****/
 
 /***** find index of radio btn clicked *****/
 function radioBtnWithCheckedTrue(arrOfRadioInput) {
@@ -444,6 +568,7 @@ function radioBtnWithCheckedTrue(arrOfRadioInput) {
       indexOfRadioBtnChecked = currentIndex;
     }
   });
+
   return indexOfRadioBtnChecked;
 }
 
@@ -518,9 +643,9 @@ function rightArrowClickedRadioButton(
 /***** arrow keyboard functionality *****/
 
 function arrowKeyboardSwitchingProfileDisplay(
-  strToFindIdOfDisplayPanelToggled,
-  { elementToApplyListenEventForArrowKeyboard } = ourSelectors()
+  strToFindIdOfDisplayPanelToggled
 ) {
+  // elementToApplyListenEventForArrowKeyboard
   var inputRadioBtnOfDisplayPanelSelectedArrowKeyboard = Array.from(
     document.querySelectorAll(
       `#${strToFindIdOfDisplayPanelToggled}-displays [name=${strToFindIdOfDisplayPanelToggled}-profile-display]`
@@ -530,23 +655,25 @@ function arrowKeyboardSwitchingProfileDisplay(
   var indexOfRadioBtnPassToHelperFuncs = radioBtnWithCheckedTrue(
     inputRadioBtnOfDisplayPanelSelectedArrowKeyboard
   );
+  var whatIsThis =
+    inputRadioBtnOfDisplayPanelSelectedArrowKeyboard[
+      indexOfRadioBtnPassToHelperFuncs
+    ];
+  whatIsThis.focus();
+  console.log(whatIsThis);
   /***** get the index of the current radio btn with checked:true ****/
   /*****  listen to keyboard down on testimonials element. parent of all our elements.*****/
   document
     .querySelector(".testimonials")
     .addEventListener("keydown", function whatIsThis(event) {
-      console.dir(event.target);
+      console.log(event);
     });
   /*****  listen to keyboard down on testimonials element. parent of all our elements.*****/
 }
 
 /***** arrow keyboard functionality helper functions *****/
-function leftAndDownArrowKeyboardSwitchProfileDisplay(
-  indexOfRadioBtnCheckedTrue
-) {}
-function rightAndUpArrowKeyboardSwitchProfileDisplay(
-  indexOfRadioBtnCheckedTrue
-) {}
+function downArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
+function upArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
 // function upArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
 // function downArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
 /***** arrow keyboard functionality helper functions *****/
