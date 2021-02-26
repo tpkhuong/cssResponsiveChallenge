@@ -94,6 +94,11 @@ select {
   font: inherit;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -132,7 +137,6 @@ p {
   display: inline-flex;
   width: 100%;
   justify-content: space-between;
-  cursor: pointer;
   /* transform: translateY(25vh); */
   z-index: 150;
 }
@@ -141,6 +145,7 @@ p {
   display: inline-block;
   font-size: 2em;
   color: red;
+  cursor: pointer;
   /* position: relative; */
 }
 [class*="left-"] {
