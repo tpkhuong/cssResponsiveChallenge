@@ -466,7 +466,7 @@ function arrowsOfDisplayProfileBasedOnPanelSelected(
   //     }
   //   }
   // );
-  /***** select each arrow span *****/
+  /***** select each arrow button *****/
   // console.dir(inputRadioBtnOfDisplayPanelSelected);
 }
 
@@ -501,32 +501,32 @@ function removeEventListenersOnNonToggledPanels(
   }, []);
   /***** array of id we will use to select the article element non toggled *****/
 
-  /***** array of all the span element of the article display panels not toggle. we want to remove the event listeners on these elements *****/
+  /***** array of all the Button element of the article display panels not toggle. we want to remove the event listeners on these elements *****/
   var arrOfElementToRemoveEventListeners = arrOfIdOfArticlePanelsNotSelected.reduce(
-    function getAllSpanElementNonToggled(buildingUp, currentValue) {
-      var groupOfSpanElementWithArrowClass = document.querySelectorAll(
+    function getAllButtonElementNonToggled(buildingUp, currentValue) {
+      var groupOfButtonElementWithArrowClass = document.querySelectorAll(
         `#${currentValue}-displays [class*='-arrow']`
       );
-      return [...buildingUp, ...groupOfSpanElementWithArrowClass];
+      return [...buildingUp, ...groupOfButtonElementWithArrowClass];
     },
     []
   );
-  /***** array of all the span element of the article display panels not toggle. we want to remove the event listeners on these elements *****/
+  /***** array of all the Button element of the article display panels not toggle. we want to remove the event listeners on these elements *****/
   console.log(arrOfElementToRemoveEventListeners);
   // console.log(funcToRemove);
   /***** loop through and cloning each arrow element add the text and replace which will remove the event listener *****/
   arrOfElementToRemoveEventListeners.forEach(function cloneElement(
-    eachSpanElement
+    eachButtonElement
   ) {
-    var cloneELement = eachSpanElement.cloneNode();
+    var cloneELement = eachButtonElement.cloneNode();
     if (cloneELement.className.includes("left")) {
       cloneELement.innerText = "<";
     } else {
       cloneELement.innerText = ">";
     }
-    console.log(eachSpanElement);
-    // var parentElementOfSpan = eachSpanElement.parentElement;
-    eachSpanElement.replaceWith(cloneELement);
+    console.log(eachButtonElement);
+    // var parentElementOfButton = eachButtonElement.parentElement;
+    eachButtonElement.replaceWith(cloneELement);
     // console.log(cloneELement);
   });
   /***** loop through and cloning each arrow element add the text and replace which will remove the event listener *****/
@@ -651,29 +651,97 @@ function arrowKeyboardSwitchingProfileDisplay(
       `#${strToFindIdOfDisplayPanelToggled}-displays [name=${strToFindIdOfDisplayPanelToggled}-profile-display]`
     )
   );
-  /***** get the index of the current radio btn with checked:true ****/
-  var indexOfRadioBtnPassToHelperFuncs = radioBtnWithCheckedTrue(
-    inputRadioBtnOfDisplayPanelSelectedArrowKeyboard
-  );
-  var whatIsThis =
-    inputRadioBtnOfDisplayPanelSelectedArrowKeyboard[
-      indexOfRadioBtnPassToHelperFuncs
-    ];
-  whatIsThis.focus();
-  console.log(whatIsThis);
-  /***** get the index of the current radio btn with checked:true ****/
+
   /*****  listen to keyboard down on testimonials element. parent of all our elements.*****/
   document
     .querySelector(".testimonials")
-    .addEventListener("keydown", function whatIsThis(event) {
+    .addEventListener("keydown", function switchProfileOnArrowKeys(event) {
       console.log(event);
+      /***** get the index of the current radio btn with checked:true ****/
+      /***** ArrowDown: code = "ArrowDown" key: "ArrowDown" keyCode: 40 *****/
+      /***** ArrowUp: code = "ArrowUp" key: "ArrowUp" keyCode: 38 *****/
+      var indexOfRadioBtnPassToHelperFuncs = radioBtnWithCheckedTrue(
+        inputRadioBtnOfDisplayPanelSelectedArrowKeyboard
+      );
+      if (
+        event.code == "ArrowDown" ||
+        event.key == "ArrowDown" ||
+        event.keyCode == 40
+      ) {
+        event.preventDefault();
+        console.log(indexOfRadioBtnPassToHelperFuncs);
+        downArrowKeyboardSwitchProfileDisplay(
+          indexOfRadioBtnPassToHelperFuncs,
+          inputRadioBtnOfDisplayPanelSelectedArrowKeyboard
+        );
+      } else if (
+        event.code == "ArrowUp" ||
+        event.key == "ArrowUp" ||
+        event.keyCode == 38
+      ) {
+        console.log(indexOfRadioBtnPassToHelperFuncs);
+        event.preventDefault();
+        upArrowKeyboardSwitchProfileDisplay(
+          indexOfRadioBtnPassToHelperFuncs,
+          inputRadioBtnOfDisplayPanelSelectedArrowKeyboard
+        );
+      }
+      // whatIsThis.focus();
+      /***** get the index of the current radio btn with checked:true ****/
     });
   /*****  listen to keyboard down on testimonials element. parent of all our elements.*****/
 }
 
 /***** arrow keyboard functionality helper functions *****/
-function downArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
-function upArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
+function downArrowKeyboardSwitchProfileDisplay(
+  indexOfRadioBtnCheckedTrue,
+  arrOfInputRadioBtn
+) {
+  var [firstProfile, secondProfile, thirdProfile] = arrOfInputRadioBtn;
+  console.log(arrOfInputRadioBtn);
+  switch (indexOfRadioBtnCheckedTrue) {
+    case 0:
+      firstProfile.checked = false;
+      secondProfile.checked = false;
+      thirdProfile.checked = true;
+      break;
+    case 1:
+      firstProfile.checked = true;
+      secondProfile.checked = false;
+      thirdProfile.checked = false;
+      break;
+
+    case 2:
+      firstProfile.checked = false;
+      secondProfile.checked = true;
+      thirdProfile.checked = false;
+      break;
+  }
+}
+function upArrowKeyboardSwitchProfileDisplay(
+  indexOfRadioBtnCheckedTrue,
+  arrOfInputRadioBtn
+) {
+  var [firstProfile, secondProfile, thirdProfile] = arrOfInputRadioBtn;
+  switch (indexOfRadioBtnCheckedTrue) {
+    case 0:
+      firstProfile.checked = false;
+      secondProfile.checked = true;
+      thirdProfile.checked = false;
+      break;
+    case 1:
+      firstProfile.checked = false;
+      secondProfile.checked = false;
+      thirdProfile.checked = true;
+      break;
+
+    case 2:
+      firstProfile.checked = true;
+      secondProfile.checked = false;
+      thirdProfile.checked = false;
+      break;
+  }
+}
 // function upArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
 // function downArrowKeyboardSwitchProfileDisplay(indexOfRadioBtnCheckedTrue) {}
 /***** arrow keyboard functionality helper functions *****/
