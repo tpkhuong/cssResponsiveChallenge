@@ -1,3 +1,18 @@
+/***** select the link in head element, create a link element, add attribute with href to css file *****/
+function selectLinkInHeadAddLinkWithSrc() {
+  var linkElement = document.querySelector("link[href*='WithoutJS']");
+  var headElement = document.querySelector("head");
+  var appendLink = document.createElement("link");
+
+  appendLink.setAttribute("rel", "stylesheet");
+  appendLink.setAttribute("href", "ourStylesKeyboardWithoutJS.css");
+
+  linkElement.insertAdjacentElement("afterend", appendLink);
+  // linkElement.insertAdjacentElement("beforeend", appendLink);
+}
+
+/***** select the link in head element, create a link element, add attribute with href to css file *****/
+
 // document
 //   .querySelector("body")
 //   .addEventListener("click", function getInfo(event) {
