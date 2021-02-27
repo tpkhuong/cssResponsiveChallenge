@@ -11,6 +11,33 @@
     <title>Modal Feature</title>
   </head>
   <body>
+    <section role="region" class="main-content">
+      <div class="wrapper">
+        <dialog></dialog>
+        <form class="flow-content" role="form" method="dialog">
+          <!-- the text in label will be overwritten by aria-label. what ever is the value to aria-label -->
+          <label for="name" aria-label="Enter Full Name">Full Name</label>
+          <input id="name" type="text" />
+          <label for="email">Email</label>
+          <input id="email" type="email" />
+          <label for="phone-number">Phone Number</label>
+          <input id="phone-number" type="tel" />
+          <label for="order-number">Order Number</label>
+          <input id="order-number" type="number" />
+          <label for="story">Tell us your story:</label>
+
+          <textarea
+            id="story"
+            name="story"
+            rows="5"
+            cols="33"
+            placeholder="It was a dark and stormy night..."
+          >
+          </textarea>
+        </form>
+        <button aria-label="open modal">Open Modal Form</button>
+      </div>
+    </section>
     <script src="modalApp.js"></script>
   </body>
 </html>
