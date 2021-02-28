@@ -13,29 +13,39 @@
   <body>
     <section role="region" class="main-content">
       <div class="wrapper">
-        <dialog></dialog>
-        <form class="flow-content" role="form" method="dialog">
-          <!-- the text in label will be overwritten by aria-label. what ever is the value to aria-label -->
-          <label for="name" aria-label="Enter Full Name">Full Name</label>
-          <input id="name" type="text" />
-          <label for="email">Email</label>
-          <input id="email" type="email" />
-          <label for="phone-number">Phone Number</label>
-          <input id="phone-number" type="tel" />
-          <label for="order-number">Order Number</label>
-          <input id="order-number" type="number" />
-          <label for="story">Tell us your story:</label>
+        <dialog>
+          <form class="flow-content" role="form" method="dialog">
+            <!-- the text in label will be overwritten by aria-label. what ever is the value to aria-label -->
+            <label for="name" aria-label="Enter Full Name">Full Name</label>
+            <input id="name" type="text" />
+            <label for="email">Email</label>
+            <input id="email" type="email" />
+            <label for="phone-number">Phone Number </label>
 
-          <textarea
-            id="story"
-            name="story"
-            rows="5"
-            cols="33"
-            placeholder="It was a dark and stormy night..."
-          >
-          </textarea>
-        </form>
-        <button aria-label="open modal">Open Modal Form</button>
+            <div class="phone-number-inputs">
+              (<input id="zip-code" pattern="[0-9]{3}" type="tel" />)
+              <input type="tel" pattern="[0-9]{3}" id="tel1" /> -
+              <input type="tel" pattern="[0-9]{4}" id="tel2" />
+            </div>
+
+            <label for="order-number">Order Number</label>
+            <input id="order-number" type="number" />
+            <label for="story">Tell us your story:</label>
+
+            <textarea
+              id="story"
+              name="story"
+              rows="5"
+              cols="33"
+              placeholder="It was a dark and stormy night..."
+            >
+            </textarea>
+            <button class="form-btn" type="submit">Submit</button>
+          </form>
+        </dialog>
+        <button class="modal-btn" aria-label="open modal">
+          Open Modal Form
+        </button>
       </div>
     </section>
     <script src="modalApp.js"></script>
