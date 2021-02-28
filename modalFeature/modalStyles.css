@@ -169,13 +169,50 @@ input {
   /* animation: moveLeft 2s linear 2s infinite forwards; */
 }
 
+[for="phone-number"] {
+  display: inline-flex;
+}
+
 [role="form"] {
   border: 1px solid red;
   padding: 2em;
   display: flex;
   flex-flow: column;
   background-color: var(--clr-primary);
+  border-radius: 0.8rem;
   /* overflow: hidden; */
+}
+
+[role="form"] > *:focus,
+.phone-number-inputs > *:focus {
+  border: 5px dotted blue;
+}
+
+input:invalid {
+  background-color: red;
+}
+
+[id="email"]:invalid {
+  background-color: aquamarine;
+}
+
+input[pattern*="0"] {
+  display: inline-block;
+}
+
+.phone-number-inputs input:nth-child(1),
+.phone-number-inputs input:nth-child(2) {
+  width: 2rem;
+}
+
+.phone-number-inputs input:last-child {
+  width: 4rem;
+}
+
+.form-btn {
+  padding: 0.5em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 button {
