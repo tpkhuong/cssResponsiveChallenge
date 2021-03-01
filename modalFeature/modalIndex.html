@@ -13,8 +13,9 @@
   <body>
     <section role="region" class="main-content">
       <div class="wrapper">
-        <dialog>
-          <form class="flow-content" role="form" method="dialog">
+        <!-- <dialog class="dialog"></dialog> -->
+        <div class="modal-container">
+          <form id="modal" class="flow-content" role="form" method="dialog">
             <!-- the text in label will be overwritten by aria-label. what ever is the value to aria-label -->
             <label for="name" aria-label="Enter Full Name">Full Name</label>
             <input id="name" type="text" />
@@ -42,10 +43,11 @@
             </textarea>
             <button class="form-btn" type="submit">Submit</button>
           </form>
-        </dialog>
-        <button class="modal-btn" aria-label="open modal">
+        </div>
+
+        <a href="#" class="modal-btn" aria-label="open modal">
           Open Modal Form
-        </button>
+        </a>
       </div>
     </section>
     <script src="modalApp.js"></script>
