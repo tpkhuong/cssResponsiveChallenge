@@ -184,7 +184,8 @@ input {
 }
 
 [role="form"] > *:focus,
-.phone-number-inputs > *:focus {
+.phone-number-inputs > *:focus,
+.modal-btn:focus {
   border: 5px dotted blue;
 }
 
@@ -213,6 +214,15 @@ input[pattern*="0"] {
   padding: 0.5em;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.modal-btn {
+  /* max-width: 11rem; */
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  margin: 0 auto;
 }
 
 button {
