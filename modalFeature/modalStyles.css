@@ -150,16 +150,47 @@ select {
   flex-basis: 75%;
 }
 
+.visually-hidden:not(:focus):not(:active) {
+  /* clip: rect(0 0 0 0); */
+  clip-path: inset(50%);
+  /* height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; */
+}
+
+/* utilities */
+
 .main-content {
   min-height: 100vh;
   background-color: var(--clr-200);
-  display: flex;
+  /* display: flex;
   flex-flow: column;
+  align-items: center;
+  justify-content: center; */
 }
 
-.wrapper {
-  max-width: 35rem;
-  margin: auto;
+/* .wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
+
+.modal-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /***** when we didnt use align-items with flex-flow: column. the form and a tag stretch to the size of its parent.
+  
+  flex-items have an intrinsic width(width is determined by its content) but if we use align-items when the flex-direction is column it will shrink the form and a tag to proper size
+  without declaring width on the form element and/or the a tag element.
+  *****/
+  align-items: center;
+  /* max-width: 100%; */
+  min-height: 100vh;
 }
 /* input and label */
 
@@ -222,8 +253,16 @@ input[pattern*="0"] {
   background-color: #fff;
   border-radius: 0.2em;
   padding: 0.5em;
-  margin: 0 auto;
+  margin: 1em 0 0 0;
+  text-align: center;
+  /* transform: translate(0, 10rem); */
 }
+
+/* modal effect when clicked to show modal */
+.modal-effect {
+  background-color: red;
+}
+/* modal effect when clicked to show modal */
 
 button {
   /* align-self: flex-start; */
