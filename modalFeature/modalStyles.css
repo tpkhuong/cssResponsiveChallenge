@@ -8,7 +8,8 @@
   --clr-200: #6f737f;
   --clr-300: #3b4050;
   --clr-400: #2e323f;
-  --clr-white: #fff;
+  --clr-500: hsl(229, 6%, 66%);
+  --clr-white: rgba(249, 250, 243, 0.952);
 
   --fs-200: 1rem;
   --fs-300: 1.125rem;
@@ -152,7 +153,9 @@ select {
 
 .visually-hidden:not(:focus):not(:active) {
   /* clip: rect(0 0 0 0); */
-  clip-path: inset(50%);
+  /* clip-path: inset(50%); */
+  /* display: none; */
+  visibility: hidden;
   /* height: 1px;
   overflow: hidden;
   position: absolute;
@@ -164,7 +167,7 @@ select {
 
 .main-content {
   min-height: 100vh;
-  background-color: var(--clr-200);
+  background-color: var(--clr-500);
   /* display: flex;
   flex-flow: column;
   align-items: center;
@@ -260,7 +263,7 @@ input[pattern*="0"] {
 
 /* modal effect when clicked to show modal */
 .modal-effect {
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 /* modal effect when clicked to show modal */
 
