@@ -163,6 +163,18 @@ select {
   width: 1px; */
 }
 
+.hidden-title {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  display: none;
+  /* visibility: hidden; */
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 /* utilities */
 
 .main-content {
@@ -202,6 +214,10 @@ input {
   display: block;
   /* animation: moveLeft 2s linear 2s infinite forwards; */
 }
+
+/* label {
+  display: none;
+} */
 
 [for="phone-number"] {
   display: inline-flex;
