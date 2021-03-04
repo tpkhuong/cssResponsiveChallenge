@@ -31,16 +31,38 @@
           >
             <!-- the text in label will be overwritten by aria-label. what ever is the value to aria-label -->
             <label for="name" aria-label="Enter Full Name">Full Name</label>
+            <!-- placeholder="Full Name" -->
             <input id="name" type="text" />
             <label for="email">Email</label>
+            <!-- aria-placeholder="email" -->
             <input id="email" type="email" />
-            <label for="phone-number">Phone Number </label>
-
-            <div class="phone-number-inputs">
-              (<input id="zip-code" pattern="[0-9]{3}" type="tel" />)
-              <input type="tel" pattern="[0-9]{3}" id="tel1" /> -
-              <input type="tel" pattern="[0-9]{4}" id="tel2" />
+            <!-- might have to change this -->
+            <label tabindex="0" id="phone-number">Phone Number</label>
+            <div aria-labelledby="phone-number" class="phone-number-inputs">
+              (<input
+                id="phone-number"
+                pattern="[0-9]{3}"
+                type="tel"
+                maxlength="3"
+                aria-label="Enter area-code"
+              />)
+              <input
+                type="tel"
+                pattern="[0-9]{3}"
+                id="tel1"
+                maxlength="3"
+                aria-label="Enter 3 digits"
+              />
+              -
+              <input
+                type="tel"
+                pattern="[0-9]{4}"
+                id="tel2"
+                maxlength="4"
+                aria-label="Enter 4 digits/>"
+              />
             </div>
+            <!-- might have to change this -->
 
             <label for="order-number">Order Number</label>
             <input id="order-number" type="number" />
