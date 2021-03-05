@@ -14,14 +14,14 @@
     <section role="region" class="main-content">
       <div class="wrapper">
         <!-- <dialog class="dialog"></dialog> -->
-        <details>
+        <!-- <details>
           <summary>Transcript</summary>
           <p class="transcript-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
             molestiae, amet, voluptate fugit eveniet dolorum quae ipsam
             repudiandae dolorem id inventore cum esse, consequuntur vel.
           </p>
-        </details>
+        </details> -->
         <div class="modal-container">
           <form
             id="modal"
@@ -37,8 +37,14 @@
             <!-- aria-placeholder="email" -->
             <input id="email" type="email" />
             <!-- might have to change this -->
-            <label tabindex="0" id="phone-number">Phone Number</label>
-            <div aria-labelledby="phone-number" class="phone-number-inputs">
+            <label for="phone-number" hidden>Enter Phone Number</label>
+            <input
+              type="tel"
+              id="phone-number"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              maxlength="12"
+            />
+            <!-- <div aria-labelledby="phone-number" class="phone-number-inputs">
               (<input
                 id="phone-number"
                 pattern="[0-9]{3}"
@@ -61,7 +67,7 @@
                 maxlength="4"
                 aria-label="Enter 4 digits/>"
               />
-            </div>
+            </div> -->
             <!-- might have to change this -->
 
             <label for="order-number">Order Number</label>
@@ -78,10 +84,10 @@
             </textarea>
             <button class="form-btn" type="submit">Submit</button>
           </form>
-          <a href="#modal" class="modal-btn" aria-label="open modal form">
-            Open Modal Form
-          </a>
         </div>
+        <a href="#modal" class="modal-btn" aria-label="open modal form">
+          Open Modal Form
+        </a>
       </div>
     </section>
     <script src="modalApp.js"></script>
