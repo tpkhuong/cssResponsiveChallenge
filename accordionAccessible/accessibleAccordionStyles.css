@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Oswald:wght@400;500;700&display=swap");
+
+:root {
+  --ff-Montserrat: "Montserrat", sans-serif;
+  --ff-Oswald: "Oswald", sans-serif;
+
+  --clr-primary: #a59678;
+  --clr-200: #6f737f;
+  --clr-300: #3b4050;
+  --clr-400: #2e323f;
+  --clr-500: hsl(229, 6%, 66%);
+  --clr-white: rgba(249, 250, 243, 0.952);
+
+  --fs-200: 1rem;
+  --fs-300: 1.125rem;
+  --fs-400: 1.3125rem;
+  --fs-500: 1.5rem;
+  --fs-600: 1.875rem;
+  --fs-700: 2.25rem;
+  --fs-800: 5.625rem;
+
+  --fw-med: 500;
+  --fw-bold: 700;
+  --fw-bolder: 900;
+
+  --med-breakpoint: 43.75em;
+  --large-breakpoint: 62.5em;
+
+  --container-width: 75em;
+}
+
+/* reset */
+
+/* reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+body {
+  margin: 0;
+  /* figure, dl, and dd have default margin */
+  /* font-weight: 100; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.4;
+  font-size: var(--fs-400);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-fg, var(--clr-neutral-900));
+  font-weight: var(--fw-700);
+  font-size: var(--fs-300);
+}
+
+img {
+  /* using object-fit for images. we have to set a height or a min-height on the image and the width of 100% 
+  exception to the rule of setting a height. we can sometime use it on a child element.
+  */
+  max-width: 100%;
+  /* we use max-width: 100% so when we have an img element inside of a div and we want to use flex which means the div will be a flex item
+    the img will shrink and grow as its parent element shrink and grows
+    */
+  display: block;
+  height: auto;
+}
+
+ul[class],
+li[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* utilities */
+
+.flow-content > * + * {
+  margin: 0.8em 0 0 0;
+}
+
+.columns {
+  display: flex;
+  flex-flow: column;
+}
+
+.columns > * {
+  flex-basis: 100%;
+}
+
+.columns > * + * {
+  margin: 1em 0 0 0;
+}
+
+[class^="bg-"] {
+  background: var(--bg, antiquewhite);
+  color: var(--fg, #000);
+}
+
+.bg-dark {
+}
+
+.bg-light {
+}
+
+[class^="col-"] {
+  flex-basis: var(--flex-col, 100%);
+}
+
+.col-1 {
+  flex-basis: 25%;
+}
+.col-2 {
+  flex-basis: 50%;
+}
+.col-1 {
+  flex-basis: 75%;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  /* clip: rect(0 0 0 0); */
+  /* clip-path: inset(50%); */
+  /* display: none; */
+  visibility: hidden;
+  /* height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; */
+}
+
+.hidden-title {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  display: none;
+  /* visibility: hidden; */
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* utilities */
+
+.main-content {
+  min-height: 100vh;
+  background-color: var(--clr-500);
+  /* display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* .wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
+
+.modal-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /***** when we didnt use align-items with flex-flow: column. the form and a tag stretch to the size of its parent.
+  
+  flex-items have an intrinsic width(width is determined by its content) but if we use align-items when the flex-direction is column it will shrink the form and a tag to proper size
+  without declaring width on the form element and/or the a tag element.
+  *****/
+  align-items: center;
+  /* max-width: 100%; */
+  min-height: 100vh;
+}
+/* input and label */
+
+label,
+input {
+  display: block;
+  /* animation: moveLeft 2s linear 2s infinite forwards; */
+}
+
+/* label {
+  display: none;
+} */
+
+[for="phone-number"] {
+  display: inline-flex;
+}
+
+[role="form"] {
+  border: 1px solid red;
+  padding: 2em;
+  display: flex;
+  flex-flow: column;
+  background-color: var(--clr-primary);
+  border-radius: 0.8rem;
+  /* overflow: hidden; */
+}
+
+[role="form"] > *:focus,
+.phone-number-inputs > *:focus,
+.modal-btn:focus {
+  border: 5px dotted blue;
+}
+
+input:invalid {
+  background-color: rgba(255, 85, 85, 0.493);
+}
+
+[id="email"]:invalid {
+  background-color: aquamarine;
+}
+
+input[pattern*="0"] {
+  display: inline-block;
+}
+
+.phone-number-inputs input:nth-child(1),
+.phone-number-inputs input:nth-child(2) {
+  width: 2rem;
+}
+
+.phone-number-inputs input:last-child {
+  width: 4rem;
+}
+
+.form-btn {
+  padding: 0.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal-btn {
+  /* max-width: 11rem; */
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  margin: 1em 0 0 0;
+  text-align: center;
+  /* transform: translate(0, 10rem); */
+}
+
+/* modal effect when clicked to show modal */
+.modal-effect {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* modal effect when clicked to show modal */
+
+button {
+  /* align-self: flex-start; */
+}
+
+/* @keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-999em);
+  }
+} */
