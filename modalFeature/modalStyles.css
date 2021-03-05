@@ -194,7 +194,7 @@ select {
   min-height: 100vh;
 } */
 
-.modal-container {
+.wrapper {
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -240,7 +240,7 @@ input {
 }
 
 input:invalid {
-  background-color: red;
+  background-color: rgba(255, 85, 85, 0.493);
 }
 
 [id="email"]:invalid {
