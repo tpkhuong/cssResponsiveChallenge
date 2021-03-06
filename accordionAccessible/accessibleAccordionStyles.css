@@ -44,7 +44,8 @@ h2,
 h3,
 h4,
 p,
-body {
+body,
+ul {
   margin: 0;
   /* figure, dl, and dd have default margin */
   /* font-weight: 100; */
@@ -163,19 +164,55 @@ select {
   width: 1px; */
 }
 
-.hidden-title {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  display: none;
+.hidden-title,
+input[type="checkbox"] {
+  /* display: none; */
+  /* clip: rect(0 0 0 0);
+  clip-path: inset(50%); */
   /* visibility: hidden; */
-  height: 1px;
+  /* height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
+  width: 1px; */
+
+  position: absolute;
+  left: -10000px;
+  top: auto;
   width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* utilities */
+
+/* accordion */
+
+.questions {
+  padding: 1em 0 0 0;
+}
+
+.question-content {
+  position: absolute;
+  transform: translateY(-999em);
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  color: rgb(173, 102, 10);
+}
+
+input[type="checkbox"]:checked ~ .question-content {
+  position: static;
+  transform: translateY(0);
+}
+
+.questions:focus-within .question label {
+  background-color: red;
+}
+
+.question {
+  padding: 0 1rem;
+}
+/* accordion */
 
 .main-content {
   min-height: 100vh;
@@ -195,7 +232,7 @@ select {
 } */
 
 .modal-container {
-  display: flex;
+  display: none;
   flex-flow: column;
   justify-content: center;
   /***** when we didnt use align-items with flex-flow: column. the form and a tag stretch to the size of its parent.
@@ -218,6 +255,16 @@ input {
 /* label {
   display: none;
 } */
+
+.accordion {
+  max-width: 25rem;
+  padding: 1em;
+}
+
+.transcript-text {
+  font-size: 1.1rem;
+  padding-left: 1em;
+}
 
 [for="phone-number"] {
   display: inline-flex;
