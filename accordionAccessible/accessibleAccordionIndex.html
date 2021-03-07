@@ -80,19 +80,21 @@
                 <div> or <li> when we declare display: flex on the label. its width will be the width of its parent(the container)    
                 -->
             <input type="checkbox" id="check1" />
-            <label aria-expanded="false" for="check1" tabindex="0"
-              >How many team members can I invite?</label
-            >
-            <p class="question-content">
+            <button aria-expanded="false" aria-controls="content-1" for="check1" type="button"/button>
+              How many team members can I invite?
+              <span class="icon"></span>
+            </button>
+            <p class="question-content" id="content-1" hidden>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
               repudiandae.
+              
             </p>
           </div>
           <div class="question">
             <input type="checkbox" id="check2" />
-            <label for="check2" tabindex="0"
-              >What is the maximum file upload size?</label
-            >
+            <button for="check2" type="button">
+              What is the maximum file upload size?
+            </button>
             <p class="question-content">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
               repudiandae.
@@ -100,7 +102,9 @@
           </div>
           <div class="question">
             <input type="checkbox" id="check3" />
-            <label for="check3" tabindex="0">How do I reset my password?</label>
+            <button for="check3" type="button">
+              How do I reset my password?
+            </button>
             <p class="question-content">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
               repudiandae.
@@ -108,9 +112,9 @@
           </div>
           <div class="question">
             <input type="checkbox" id="check4" />
-            <label for="check4" tabindex="0"
-              >Can I cancel my subscription?</label
-            >
+            <button for="check4" type="button">
+              Can I cancel my subscription?
+            </button>
             <p class="question-content">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
               repudiandae.
@@ -118,9 +122,9 @@
           </div>
           <div class="question">
             <input type="checkbox" id="check5" />
-            <label for="check5" tabindex="0"
-              >Do you provide additional support?</label
-            >
+            <button for="check5" type="button">
+              Do you provide additional support?
+            </button>
             <p class="question-content">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi,
               repudiandae.
