@@ -342,3 +342,13 @@ button {
     transform: translateX(-999em);
   }
 } */
+
+.icon {
+  width: 0.5em;
+  border: solid black;
+  height: 0.5rem;
+  border-width: 0 2px 2px 0;
+  /* position: absolute made it into a box. without position: absolute it was a line */
+  position: absolute;
+  transform: translateY(0.3rem) rotate(45deg);
+}
