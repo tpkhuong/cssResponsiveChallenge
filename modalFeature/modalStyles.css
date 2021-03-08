@@ -277,6 +277,30 @@ input[pattern*="0"] {
   /* transform: translate(0, 10rem); */
 }
 
+#modal {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-btn {
+  margin: 0 0 0 auto;
+}
+
+.outside-btn {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: default;
+}
+
 /* modal effect when clicked to show modal */
 .modal-effect {
   background-color: rgba(0, 0, 0, 0.7);
