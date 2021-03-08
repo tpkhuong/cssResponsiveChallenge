@@ -41,32 +41,11 @@ function showModal(
     // focusElementWhenExitModal = document.activeElement;
     // console.log(focusElementWhenExitModal);
     // exitModalFocusOnClickedElement = event.target;
-    if (event.target.className.includes("modal-btn")) {
-      formElement.classList.remove("visually-hidden");
-      wrapperElement.classList.add("modal-effect");
-      firstChildOfForm.focus();
-      /***** without event.preventDefault(), when we activate the button or use space bar or enter key to click the button, focus was not on the first element of the form element *****/
-      event.preventDefault();
-      /***** without event.preventDefault(), when we activate the button or use space bar or enter key to click the button, focus was not on the first element of the form element *****/
+    if (event.target.baseURI.includes("#modal")) {
+      modalContainer.classList.add("hide-modal");
+      modalContainer.baseURI =
+        "http://127.0.0.1:5500/modalFeature/modalIndex.html#!";
     }
-    if (
-      !wrapperElement.className.includes("visually-hidden") &&
-      event.target.className.includes("modal-effect")
-    ) {
-      formElement.classList.add("visually-hidden");
-      wrapperElement.classList.remove("modal-effect");
-
-      /***** anchor tag below our form *****/
-      //   exitModalFocusOnClickedElement.focus();
-      document.querySelector("a[href='#modal']").focus();
-      /***** anchor tag below our form *****/
-      //   focusElementWhenExitModal.focus();
-      event.preventDefault();
-    }
-    console.log(event);
-    // console.log(focusElementWhenExitModal);
-    // console.log(firstChildOfForm);
-    // console.log(lastChildOfForm);
   });
 
   var focusElementWhenExitModal;
@@ -173,4 +152,33 @@ function showModal(
   //   formElement.addEventListener("submit", function focusOnBtn(event) {
   //     focusElementWhenExitModal.focus();
   //   });
+}
+
+function save() {
+  if (event.target.className.includes("modal-btn")) {
+    formElement.classList.remove("visually-hidden");
+    wrapperElement.classList.add("modal-effect");
+    firstChildOfForm.focus();
+    /***** without event.preventDefault(), when we activate the button or use space bar or enter key to click the button, focus was not on the first element of the form element *****/
+    event.preventDefault();
+    /***** without event.preventDefault(), when we activate the button or use space bar or enter key to click the button, focus was not on the first element of the form element *****/
+  }
+  if (
+    !wrapperElement.className.includes("visually-hidden") &&
+    event.target.className.includes("modal-effect")
+  ) {
+    formElement.classList.add("visually-hidden");
+    wrapperElement.classList.remove("modal-effect");
+
+    /***** anchor tag below our form *****/
+    //   exitModalFocusOnClickedElement.focus();
+    document.querySelector("a[href='#modal']").focus();
+    /***** anchor tag below our form *****/
+    //   focusElementWhenExitModal.focus();
+    event.preventDefault();
+  }
+  console.log(event);
+  // console.log(focusElementWhenExitModal);
+  // console.log(firstChildOfForm);
+  // console.log(lastChildOfForm);
 }
