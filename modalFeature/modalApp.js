@@ -17,8 +17,9 @@ showModal();
 function showModal(
   { btnElement, formElement, modalContainer, wrapperElement } = ourSelectors()
 ) {
+  alert("use event.target.matches('#modal:target')");
   var arrOfStringsTabbableElement = [
-    "A",
+    // "A", don't want to include <a> in our array of tabble elements for this situation because <a> tags are our button.
     "BUTTON",
     "INPUT",
     "SELECT",
@@ -37,6 +38,7 @@ function showModal(
   //   var focusElementWhenExitModal;
 
   //   var exitModalFocusOnClickedElement;
+  /*
   wrapperElement.addEventListener("click", function applyOpen(event) {
     // focusElementWhenExitModal = document.activeElement;
     // console.log(focusElementWhenExitModal);
@@ -46,7 +48,7 @@ function showModal(
       modalContainer.baseURI =
         "http://127.0.0.1:5500/modalFeature/modalIndex.html#!";
     }
-  });
+  });*/
 
   var focusElementWhenExitModal;
   btnElement.addEventListener("keydown", function spaceKeyFuntionality(event) {
@@ -54,24 +56,49 @@ function showModal(
       /***** without event.preventDefault() when we hit the space bar to activate the modal and focus on first input
        * there will be a space at the beginning of the first input
        *  *****/
+      /*
       event.preventDefault();
       focusElementWhenExitModal = document.activeElement;
       formElement.classList.remove("visually-hidden");
       wrapperElement.classList.add("modal-effect");
-      firstChildOfForm.focus();
+      firstChildOfForm.focus();*/
+      if (formElement.baseURI.includes("#modal")) {
+        console.log("modal is opened");
+      }
       console.log(document.activeElement);
-      console.log(focusElementWhenExitModal);
+      console.log(formElementChildren);
+    }
+  });
+
+  btnElement.addEventListener("click", function spaceKeyFuntionality(event) {
+    if (event.code == "Space") {
+      /***** without event.preventDefault() when we hit the space bar to activate the modal and focus on first input
+       * there will be a space at the beginning of the first input
+       *  *****/
+      /*
+      event.preventDefault();
+      focusElementWhenExitModal = document.activeElement;
+      formElement.classList.remove("visually-hidden");
+      wrapperElement.classList.add("modal-effect");
+      firstChildOfForm.focus();*/
+
+      console.log(document.activeElement);
+      console.log(formElementChildren);
+    }
+    if (formElement.baseURI.includes("#modal")) {
+      console.log("modal is opened");
     }
   });
 
   modalContainer.addEventListener("keydown", function usingSpaceKey(event) {
     /***** code: "Space", keyCode: 32, key: " " *****/
     /***** using switch statement for cleaner code *****/
+
     switch (event.code) {
       case "Escape":
-        formElement.classList.add("visually-hidden");
-        wrapperElement.classList.remove("modal-effect");
-        focusElementWhenExitModal.focus();
+        // formElement.classList.add("visually-hidden");
+        // wrapperElement.classList.remove("modal-effect");
+        // focusElementWhenExitModal.focus();
         // console.log(focusElementWhenExitModal);
         // console.log(event);
         // console.log(focusElementWhenExitModal);
@@ -124,7 +151,7 @@ function showModal(
     //   console.log(focusElementWhenExitModal);
     /***** shift key is pressed *****/
     /***** have to listen to tab and check if the event.shiftKey is true or false *****/
-    console.dir(document.activeElement);
+    // console.dir(document.activeElement);
     /*if (event.shiftKey == true) {
         if (document.activeElement == firstChildOfForm) {
           lastChildOfForm.focus();
