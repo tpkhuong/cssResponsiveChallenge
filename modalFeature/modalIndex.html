@@ -94,13 +94,20 @@
             </textarea>
             <button class="form-btn" type="submit">Submit</button>
           </form>
+          <!-- when we had this element outside of the element with the class .modal-container, when we click on anywhere outside of the modal button
+          WE selected the <a> with the class of outside-btn. user had to use shift-tab to select the modal button. both our <a> with class of .outside-btn
+          and div with class of wrapper have these css declarations. position: fixed. top, right,bottom, and left 0. they will be fixed to the viewport and take up the whole screen.
+          when we moved the outside-btn into the element with modal-container when we click anywhere outside of the modal btn. we can select the modal btn using tab.
+          WITHOUT the z-index: -1 on our <a> with outside-btn, once we activate the modal btn. clicking anywhere on the screen we deactivate the modal btn. giving the
+          outside-btn a z-index of -1, the modal/form will deactivate when we click outside of the modal/form.
+          -->
+          <a href="#!" class="outside-btn"></a>
         </div>
         <a href="#modal" class="modal-btn" aria-label="open modal form">
           Open Modal Form
         </a>
-        <!-- <a href="#!" class="outside-btn"></a> -->
       </div>
     </section>
-    <!-- <script src="modalApp.js"></script> -->
+    <script src="modalApp.js"></script>
   </body>
 </html>
