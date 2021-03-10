@@ -3,21 +3,28 @@ function ourSelectors() {
   var formElement = document.querySelector("[role='form']");
   var modalContainer = document.querySelector(".modal-container");
   var wrapperElement = document.querySelector(".wrapper");
+  var outsideBtn = document.querySelector(".outside-btn");
 
   return {
     btnElement,
     formElement,
     modalContainer,
     wrapperElement,
+    outsideBtn,
   };
 }
 
 showModal();
 
 function showModal(
-  { btnElement, formElement, modalContainer, wrapperElement } = ourSelectors()
+  {
+    btnElement,
+    formElement,
+    modalContainer,
+    wrapperElement,
+    outsideBtn,
+  } = ourSelectors()
 ) {
-  alert("use event.target.matches('#modal:target')");
   var arrOfStringsTabbableElement = [
     // "A", don't want to include <a> in our array of tabble elements for this situation because <a> tags are our button.
     "BUTTON",
@@ -62,31 +69,47 @@ function showModal(
       formElement.classList.remove("visually-hidden");
       wrapperElement.classList.add("modal-effect");
       firstChildOfForm.focus();*/
-      if (formElement.baseURI.includes("#modal")) {
-        console.log("modal is opened");
+      if (!modalContainer.matches(":target")) {
+        modalContainer.classList.add("modal-show");
       }
       console.log(document.activeElement);
       console.log(formElementChildren);
     }
   });
 
-  btnElement.addEventListener("click", function spaceKeyFuntionality(event) {
-    if (event.code == "Space") {
+  /*btnElement.addEventListener("click", function spaceKeyFuntionality(event) {
+    console.log(modalContainer.matches(":target"));*/
+  /*if (event.code == "Space") {
       /***** without event.preventDefault() when we hit the space bar to activate the modal and focus on first input
        * there will be a space at the beginning of the first input
        *  *****/
-      /*
+  /*
       event.preventDefault();
       focusElementWhenExitModal = document.activeElement;
       formElement.classList.remove("visually-hidden");
       wrapperElement.classList.add("modal-effect");
       firstChildOfForm.focus();*/
-
+  /*console.log(event.target.matches(":target"));
+      if (!modalContainer.matches(":target")) {
+        console.log("modal is opened");
+      }
       console.log(document.activeElement);
       console.log(formElementChildren);
-    }
-    if (formElement.baseURI.includes("#modal")) {
-      console.log("modal is opened");
+    }*/
+  /*})*/
+
+  wrapperElement.addEventListener("click", function hideModal(event) {
+    // console.log(event.target.attributes.href);
+    console.log(event.target);
+    if (
+      event.target.tagName == "A" &&
+      event.target.attributes.href.value == "#!"
+    ) {
+      if (modalContainer.className.includes("modal-show")) {
+        modalContainer.classList.remove("modal-show");
+        btnElement.focus();
+        event.preventDefault();
+      }
     }
   });
 
@@ -95,6 +118,9 @@ function showModal(
     /***** using switch statement for cleaner code *****/
 
     switch (event.code) {
+      //   case "Space":
+      //     console.log(modalContainer.matches(":target"));
+      //     break;
       case "Escape":
         // formElement.classList.add("visually-hidden");
         // wrapperElement.classList.remove("modal-effect");
