@@ -285,12 +285,17 @@ input[pattern*="0"] {
   left: 0;
 }
 
-#modal {
+.modal-container {
   opacity: 0;
   visibility: hidden;
 }
 
-#modal:target {
+.modal-container:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-show {
   opacity: 1;
   visibility: visible;
 }
@@ -301,7 +306,7 @@ input[pattern*="0"] {
 
 .outside-btn {
   position: fixed;
-  /* if the form element our modal and the <a> outside-btn will be on the same stacking context. according to the html structure, the element that is below/lower in the html order
+  /* if the form element our modal and the <a> outside-btn are on the same stacking context. according to the html structure, the element that is below/lower in the html order
   will be on top. thinking giving the <a> outside-btn a lower z-index helped fix that.
   */
   z-index: -1;
