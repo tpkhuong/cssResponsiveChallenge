@@ -335,3 +335,16 @@ button {
     transform: translateX(-999em);
   }
 } */
+
+/* 
+
+.billboard .billboard-title a::after, .billboard .billboard-teaser a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+*/
