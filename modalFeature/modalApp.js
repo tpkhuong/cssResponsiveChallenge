@@ -4,6 +4,7 @@ function ourSelectors() {
   var modalContainer = document.querySelector(".modal-container");
   var wrapperElement = document.querySelector(".wrapper");
   var outsideBtn = document.querySelector(".outside-btn");
+  var closeBtn = document.querySelector(".close-btn");
 
   return {
     btnElement,
@@ -11,6 +12,7 @@ function ourSelectors() {
     modalContainer,
     wrapperElement,
     outsideBtn,
+    closeBtn,
   };
 }
 
@@ -22,6 +24,7 @@ function showModal(
     formElement,
     modalContainer,
     wrapperElement,
+    closeBtn,
     outsideBtn,
   } = ourSelectors()
 ) {
@@ -64,13 +67,14 @@ function showModal(
        * there will be a space at the beginning of the first input
        *  *****/
       /*
-      event.preventDefault();
       focusElementWhenExitModal = document.activeElement;
       formElement.classList.remove("visually-hidden");
       wrapperElement.classList.add("modal-effect");
       firstChildOfForm.focus();*/
+      event.preventDefault();
       if (!modalContainer.matches(":target")) {
         modalContainer.classList.add("modal-show");
+        firstChildOfForm.focus();
       }
       console.log(document.activeElement);
       console.log(formElementChildren);
@@ -98,9 +102,12 @@ function showModal(
     }*/
   /*})*/
 
-  wrapperElement.addEventListener("click", function hideModal(event) {
+  outsideBtn.addEventListener("click", function hideModal(event) {
     // console.log(event.target.attributes.href);
-    console.log(event.target);
+    console.dir(modalContainer);
+    /***** this code also works when we have our modal open and our focus is on the closeBtn which has an href="!#"
+     * so when we hit enter it will run this code and close the modal.
+     *  *****/
     if (
       event.target.tagName == "A" &&
       event.target.attributes.href.value == "#!"
@@ -122,6 +129,7 @@ function showModal(
       //     console.log(modalContainer.matches(":target"));
       //     break;
       case "Escape":
+        closeBtn.focus();
         // formElement.classList.add("visually-hidden");
         // wrapperElement.classList.remove("modal-effect");
         // focusElementWhenExitModal.focus();
@@ -140,6 +148,10 @@ function showModal(
             firstChildOfForm.focus();
             event.preventDefault();
           }
+        }
+        break;
+      case "Space":
+        if (document.activeElement == closeBtn) {
         }
         break;
     }
