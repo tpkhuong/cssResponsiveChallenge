@@ -27,7 +27,7 @@
           <!-- class:visually-hidden -->
 
           <form class="flow-content" role="form" method="dialog">
-            <a href="#!" class="close-btn" aria-label="Close">
+            <a href="#!" tabindex="-1" class="close-btn" aria-label="Close">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
@@ -47,7 +47,7 @@
             <!-- aria-placeholder="email" -->
             <input id="email" type="email" />
             <!-- might have to change this -->
-            <label for="phone-number" hidden>Enter Phone Number</label>
+            <label for="phone-number">Enter Phone Number</label>
             <input
               type="tel"
               id="phone-number"
@@ -101,17 +101,10 @@
           WITHOUT the z-index: -1 on our <a> with outside-btn, once we activate the modal btn. clicking anywhere on the screen we deactivate the modal btn. giving the
           outside-btn a z-index of -1, the modal/form will deactivate when we click outside of the modal/form.
           -->
-          <a href="#!" class="outside-btn"></a>
+          <a aria-hidden="true" href="#!" class="outside-btn"></a>
         </div>
         <!-- the href="#modal" has to match the element id -->
-        <a
-          href="#modal"
-          class="modal-btn"
-          role="button"
-          aria-label="open modal form"
-        >
-          Open Modal Form
-        </a>
+        <a href="#modal" class="modal-btn">Open Modal Form</a>
       </div>
     </section>
     <script src="modalApp.js"></script>
