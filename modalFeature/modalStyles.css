@@ -230,7 +230,18 @@ input {
   flex-flow: column;
   background-color: var(--clr-primary);
   border-radius: 0.8rem;
+
   /* overflow: hidden; */
+}
+
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-container:target {
+  opacity: 1;
+  visibility: visible;
 }
 
 [role="form"] > *:focus,
@@ -283,16 +294,6 @@ input[pattern*="0"] {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.modal-container {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.modal-container:target {
-  opacity: 1;
-  visibility: visible;
 }
 
 .modal-show {
