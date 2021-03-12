@@ -104,7 +104,7 @@ function showModal(
 
   outsideBtn.addEventListener("click", function hideModal(event) {
     // console.log(event.target.attributes.href);
-    console.dir(modalContainer);
+    console.log(event.target);
     /***** this code also works when we have our modal open and our focus is on the closeBtn which has an href="!#"
      * so when we hit enter it will run this code and close the modal.
      *  *****/
@@ -151,7 +151,23 @@ function showModal(
         }
         break;
       case "Space":
-        if (document.activeElement == closeBtn) {
+        if (
+          document.activeElement == closeBtn &&
+          modalContainer.className.includes("modal-show")
+        ) {
+          modalContainer.classList.remove("modal-show");
+          btnElement.focus();
+          event.preventDefault();
+        }
+        break;
+      case "Enter":
+        if (
+          document.activeElement == closeBtn &&
+          modalContainer.className.includes("modal-show")
+        ) {
+          modalContainer.classList.remove("modal-show");
+          btnElement.focus();
+          event.preventDefault();
         }
         break;
     }
