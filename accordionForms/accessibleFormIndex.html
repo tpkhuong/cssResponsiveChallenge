@@ -9,9 +9,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="accessibleFormStyles.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title></title>
+    <title>Accordion Accessible</title>
   </head>
   <body>
+    <section class="accordion-form">
+      <h2 class="visually-hidden">Accordion</h2>
+      <div class="wrapper">
+        <article class="personal-information">
+          <h3 class="toggle-heading">
+            <button class="toggle-btn">Personal Information</button>>
+          </h3>
+          <div role="region" class="content-container"></div>
+        </article>
+        <article class="billing-address">
+          <h3 class="toggle-heading">
+            <button class="toggle-btn">Billing Address</button>
+          </h3>
+          <div role="region" class="content-container"></div>
+        </article>
+        <article class="shipping-address">
+          <h3 class="toggle-heading">
+            <button class="toggle-btn">Shipping Address</button>
+          </h3>
+          <div role="region" class="content-container"></div>
+        </article>
+      </div>
+    </section>
     <script src="accessibleFormApp.js"></script>
   </body>
 </html>
