@@ -223,7 +223,7 @@ input {
   display: inline-flex;
 }
 
-[role="form"] {
+.modal-form {
   border: 1px solid red;
   padding: 2em;
   display: flex;
@@ -244,7 +244,7 @@ input {
   visibility: visible;
 }
 
-[role="form"] > *:focus,
+.modal-form > *:focus,
 .phone-number-inputs > *:focus,
 .modal-btn:focus {
   border: 5px dotted blue;
