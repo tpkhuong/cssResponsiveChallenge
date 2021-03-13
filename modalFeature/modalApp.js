@@ -1,6 +1,6 @@
 function ourSelectors() {
   var btnElement = document.querySelector(".modal-btn");
-  var formElement = document.querySelector("[role='form']");
+  var formElement = document.querySelector(".modal-form");
   var modalContainer = document.querySelector(".modal-container");
   var wrapperElement = document.querySelector(".wrapper");
   var outsideBtn = document.querySelector(".outside-btn");
@@ -63,6 +63,7 @@ function showModal(
   var focusElementWhenExitModal;
   btnElement.addEventListener("keydown", function spaceKeyFuntionality(event) {
     if (event.code == "Space") {
+      //   console.log(Object.is(this, btnElement));
       /***** without event.preventDefault() when we hit the space bar to activate the modal and focus on first input
        * there will be a space at the beginning of the first input
        *  *****/
@@ -78,6 +79,9 @@ function showModal(
       }
       console.log(document.activeElement);
       console.log(formElementChildren);
+    } else if (event.code == "Enter") {
+      document.querySelector("input[id='name']").focus();
+      console.log(document.activeElement);
     }
   });
 
@@ -138,6 +142,7 @@ function showModal(
         // console.log(focusElementWhenExitModal);
         break;
       case "Tab":
+        console.log(document.activeElement);
         if (event.shiftKey == true) {
           if (document.activeElement == firstChildOfForm) {
             lastChildOfForm.focus();
@@ -161,6 +166,7 @@ function showModal(
         }
         break;
       case "Enter":
+        console.log(document.activeElement);
         if (
           document.activeElement == closeBtn &&
           modalContainer.className.includes("modal-show")
