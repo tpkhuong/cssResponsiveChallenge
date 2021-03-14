@@ -19,7 +19,27 @@
           <h3 class="toggle-heading">
             <button class="toggle-btn">Personal Information</button>>
           </h3>
-          <div role="region" class="content-container"></div>
+          <div role="region" class="content-container">
+            <label for="name"></label>
+            <input type="text" id="name" />
+            <label for="email"></label>
+            <input type="email" id="email" />
+            <label for="phone"></label>
+            <input type="tel" id="phone" />
+            <label for="extension"></label>
+            <input type="text" id="extension" />
+            <label for="country"></label>
+            <input list="country-choices" id="country" />
+            <datalist id="country-choices">
+              <option value="United States"></option>
+              <option value="Japan"></option>
+              <option value="Canada"></option>
+              <option value="Spain"></option>
+              <option value="Norway"></option>
+            </datalist>
+            <label for="city"></label>
+            <input type="text" id="city" />
+          </div>
         </article>
         <article class="billing-address">
           <h3 class="toggle-heading">
