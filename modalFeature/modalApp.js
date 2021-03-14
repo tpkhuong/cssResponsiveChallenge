@@ -30,20 +30,36 @@ function showModal(
 ) {
   var arrOfStringsTabbableElement = [
     // "A", don't want to include <a> in our array of tabble elements for this situation because <a> tags are our button.
+    "A",
     "BUTTON",
     "INPUT",
     "SELECT",
     "TEXTAREA",
   ];
 
-  var formElementChildren = Array.from(formElement.children).filter(
+  /***** this code block if we want to exclude the <a> tags *****/
+  /* var formElementChildren = Array.from(formElement.children).filter(
     function onlyTabbableElement(eachElement) {
-      return arrOfStringsTabbableElement.includes(eachElement.tagName);
+        return arrOfStringsTabbableElement.includes(eachElement.tagName);
     }
+    );*/
+  /***** this code block if we want to exclude the <a> tags *****/
+  /***** reduce method*****/
+  var formElementChildren = Array.from(formElement.children).reduce(
+    function arrayOfElementForTab(buildingUp, currentValue) {
+      if (arrOfStringsTabbableElement.includes(currentValue.tagName)) {
+        return [...buildingUp, currentValue];
+      } else {
+        return buildingUp;
+      }
+    },
+    []
   );
-
+  /***** reduce method*****/
   var lengthOfFormChildren = formElementChildren.length;
+
   var firstChildOfForm = formElementChildren[0];
+  var focusThisElementWhenModalOpens = formElementChildren[1];
   var lastChildOfForm = formElementChildren[lengthOfFormChildren - 1];
   //   var focusElementWhenExitModal;
 
@@ -75,7 +91,7 @@ function showModal(
       event.preventDefault();
       if (!modalContainer.matches(":target")) {
         modalContainer.classList.add("modal-show");
-        firstChildOfForm.focus();
+        focusThisElementWhenModalOpens.focus();
       }
       console.log(document.activeElement);
       console.log(formElementChildren);
@@ -133,7 +149,12 @@ function showModal(
       //     console.log(modalContainer.matches(":target"));
       //     break;
       case "Escape":
-        closeBtn.focus();
+        if (modalContainer.className.includes("modal-show")) {
+          modalContainer.classList.remove("modal-show");
+          btnElement.focus();
+          event.preventDefault();
+        }
+        // closeBtn.focus();
         // formElement.classList.add("visually-hidden");
         // wrapperElement.classList.remove("modal-effect");
         // focusElementWhenExitModal.focus();
@@ -142,7 +163,8 @@ function showModal(
         // console.log(focusElementWhenExitModal);
         break;
       case "Tab":
-        console.log(document.activeElement);
+        // console.log(document.activeElement);
+        // console.log(firstChildOfForm);
         if (event.shiftKey == true) {
           if (document.activeElement == firstChildOfForm) {
             lastChildOfForm.focus();
