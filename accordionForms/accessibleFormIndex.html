@@ -45,13 +45,53 @@
           <h3 class="toggle-heading">
             <button class="toggle-btn">Billing Address</button>
           </h3>
-          <div role="region" class="content-container"></div>
+          <div role="region" class="content-container">
+            <label for="billing-address1"></label>
+            <input type="text" id="billing-address1" />
+            <label for="billing-address2"></label>
+            <input type="text" id="billing-address2" />
+            <label for="billing-city"></label>
+            <input type="text" id="billing-city" />
+            <label for="state"></label>
+            <input list="state-choices" id="state" />
+            <datalist id="state-choices">
+              <option value="California"></option>
+              <option value="Washington"></option>
+              <option value="New York"></option>
+              <option value="Oregon"></option>
+              <option value="Maine"></option>
+              <option value="Colorado"></option>
+              <option value="Minnesota"></option>
+            </datalist>
+            <label for="billing-zipcode"></label>
+            <input type="text" id="billing-zipcode" />
+          </div>
         </article>
         <article class="shipping-address">
           <h3 class="toggle-heading">
             <button class="toggle-btn">Shipping Address</button>
           </h3>
-          <div role="region" class="content-container"></div>
+          <div role="region" class="content-container">
+            <label for="shipping-address1"></label>
+            <input type="text" id="shipping-address1" />
+            <label for="shipping-address2"></label>
+            <input type="text" id="shipping-address2" />
+            <label for="shipping-city"></label>
+            <input type="text" id="shipping-city" />
+            <label for="state"></label>
+            <input list="state-choices" id="state" />
+            <datalist id="state-choices">
+              <option value="California"></option>
+              <option value="Washington"></option>
+              <option value="New York"></option>
+              <option value="Oregon"></option>
+              <option value="Maine"></option>
+              <option value="Colorado"></option>
+              <option value="Minnesota"></option>
+            </datalist>
+            <label for="shipping-zipcode"></label>
+            <input type="text" id="shipping-zipcode" />
+          </div>
         </article>
       </div>
     </section>
