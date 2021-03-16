@@ -17,18 +17,24 @@
       <div class="wrapper">
         <article class="personal-information">
           <h3 class="toggle-heading">
-            <button class="toggle-btn">Personal Information</button>>
+            <!-- add span element our button title  -->
+            <button class="toggle-btn">
+              <span class="btn-content"
+                >Personal Information
+                <!-- add span with class of accordion-icon -->
+              </span>
+            </button>
           </h3>
           <div role="region" class="content-container">
-            <label for="name"></label>
-            <input type="text" id="name" />
-            <label for="email"></label>
-            <input type="email" id="email" />
-            <label for="phone"></label>
+            <label for="name">Name*:</label>
+            <input type="text" id="name" required />
+            <label for="email">Email*:</label>
+            <input type="email" id="email" required />
+            <label for="phone">Phone:</label>
             <input type="tel" id="phone" />
-            <label for="extension"></label>
+            <label for="extension">Extension</label>
             <input type="text" id="extension" />
-            <label for="country"></label>
+            <label for="country">Country</label>
             <input list="country-choices" id="country" />
             <datalist id="country-choices">
               <option value="United States"></option>
@@ -37,22 +43,28 @@
               <option value="Spain"></option>
               <option value="Norway"></option>
             </datalist>
-            <label for="city"></label>
+            <label for="city">City/Province</label>
             <input type="text" id="city" />
           </div>
         </article>
         <article class="billing-address">
           <h3 class="toggle-heading">
-            <button class="toggle-btn">Billing Address</button>
+            <button class="toggle-btn">
+              <span class="btn-content"
+                >Billing Address
+
+                <!-- add span with class of accordion-icon -->
+              </span>
+            </button>
           </h3>
           <div role="region" class="content-container">
-            <label for="billing-address1"></label>
+            <label for="billing-address1">Address 1:</label>
             <input type="text" id="billing-address1" />
-            <label for="billing-address2"></label>
+            <label for="billing-address2">Address 2:</label>
             <input type="text" id="billing-address2" />
-            <label for="billing-city"></label>
+            <label for="billing-city">City</label>
             <input type="text" id="billing-city" />
-            <label for="state"></label>
+            <label for="state">State:</label>
             <input list="state-choices" id="state" />
             <datalist id="state-choices">
               <option value="California"></option>
@@ -63,22 +75,27 @@
               <option value="Colorado"></option>
               <option value="Minnesota"></option>
             </datalist>
-            <label for="billing-zipcode"></label>
+            <label for="billing-zipcode">Zip Code</label>
             <input type="text" id="billing-zipcode" />
           </div>
         </article>
         <article class="shipping-address">
           <h3 class="toggle-heading">
-            <button class="toggle-btn">Shipping Address</button>
+            <button class="toggle-btn">
+              <span class="btn-content"
+                >Shipping Address
+                <!-- add span with class of accordion-icon -->
+              </span>
+            </button>
           </h3>
           <div role="region" class="content-container">
-            <label for="shipping-address1"></label>
+            <label for="shipping-address1">Address 1:</label>
             <input type="text" id="shipping-address1" />
-            <label for="shipping-address2"></label>
+            <label for="shipping-address2">Address 2:</label>
             <input type="text" id="shipping-address2" />
-            <label for="shipping-city"></label>
+            <label for="shipping-city">City</label>
             <input type="text" id="shipping-city" />
-            <label for="state"></label>
+            <label for="state">State</label>
             <input list="state-choices" id="state" />
             <datalist id="state-choices">
               <option value="California"></option>
@@ -89,7 +106,7 @@
               <option value="Colorado"></option>
               <option value="Minnesota"></option>
             </datalist>
-            <label for="shipping-zipcode"></label>
+            <label for="shipping-zipcode">Zip Code</label>
             <input type="text" id="shipping-zipcode" />
           </div>
         </article>
