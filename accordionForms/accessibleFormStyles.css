@@ -186,6 +186,10 @@ button {
   margin: auto;
 }
 
+input:focus {
+  outline: 2px solid #000;
+}
+
 /* .wrapper:focus-within {
   border: 2px dashed blue;
 } */
@@ -198,8 +202,14 @@ button {
 
 /* individual sections */
 
+.toggle-btn {
+  text-align: left;
+  font-weight: 300;
+}
+
 .btn-content {
   font-size: 1rem;
+  position: relative;
 }
 
 /* accordion icon */
@@ -207,12 +217,13 @@ button {
 .accordion-icon {
   border: solid hsl(0, 0%, 62%);
   border-width: 0 2px 2px 0;
-  height: 0.5rem;
-  pointer-events: none;
+  /* without the position: absolute declaration, our icon will be a line */
   position: absolute;
-  right: 2em;
-  top: 50%;
-  transform: translateY(-60%) rotate(45deg);
+  transform: rotate(45deg);
+  top: 0.18rem;
+  left: 15em;
+  margin: 0 0 0 auto;
+  height: 0.5rem;
   width: 0.5rem;
 }
 
@@ -221,7 +232,7 @@ button {
 [class*="-btn"] {
   /* display: inline-block; */
   min-width: 100%;
-  padding: 1em 2em;
+  padding: 1.3em 1.5em;
 }
 
 /* content section */
@@ -231,4 +242,13 @@ button {
   flex-flow: column;
   border-top: 1px solid lightslategray;
   border-bottom: 1px solid lightslategray;
+  padding: 2.5em 1.5em;
+}
+
+input:not(:last-of-type) {
+  margin: 0 0 0.8em 0;
+}
+
+.content-container input {
+  max-width: 14rem;
 }
