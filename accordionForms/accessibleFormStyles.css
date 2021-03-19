@@ -115,7 +115,8 @@ button {
 }
 
 button:focus {
-  border: 0.2em solid hsl(216, 94%, 73%);
+  outline: 0.2em solid hsl(216, 94%, 73%);
+  outline-offset: 0.2em;
   border-radius: 0.2em;
 }
 
@@ -201,7 +202,9 @@ input,
 }
 
 input:focus {
-  border: 2px solid #000;
+  outline: 2px solid hsl(0, 0%, 0%);
+  outline-offset: 0.2em;
+  /* border: 2px solid #000; */
 }
 
 /* .wrapper:focus-within {
@@ -209,6 +212,7 @@ input:focus {
 } */
 
 .focus-ring {
+  border-color: hsl(216, 94%, 73%);
 }
 
 /* focus ring on container */
