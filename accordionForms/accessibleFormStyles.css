@@ -283,6 +283,10 @@ article:nth-of-type(3) h3 {
   border-bottom: 1px solid lightslategray;
 }
 
+h3[aria-expanded="true"] .accordion-icon {
+  transform: rotate(-135deg);
+}
+
 /* show/hide content */
 
 h3[aria-expanded="true"] ~ .content-container {
