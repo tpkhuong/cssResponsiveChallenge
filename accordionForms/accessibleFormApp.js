@@ -65,6 +65,44 @@ function addFocus({ wrapperElement } = ourSelectors()) {
   });
 }
 
+focusUsingArrowKeys();
+
+function focusUsingArrowKeys(
+  { wrapperElement, arrOfBtnElement } = ourSelectors()
+) {
+  var convertToArrOfBtns = Array.from(arrOfBtnElement);
+  var [personBtn, billingBtn, shippingBtn] = convertToArrOfBtns;
+  wrapperElement.addEventListener("keydown", function focusBtn(event) {
+    let currentElementParentTextArrowKeys =
+      event.target.parentElement.innerText;
+    if (event.key == "ArrowDown") {
+      //   console.log(event.target);
+      switch (currentElementParentTextArrowKeys) {
+        case "Personal Information":
+          billingBtn.focus();
+          break;
+        case "Billing Address":
+          shippingBtn.focus();
+          break;
+        case "Shipping Address":
+          personBtn.focus();
+      }
+    } else if (event.key == "ArrowUp") {
+      //   console.log(currentElementParentTextArrowKeys);
+      switch (currentElementParentTextArrowKeys) {
+        case "Personal Information":
+          shippingBtn.focus();
+          break;
+        case "Billing Address":
+          personBtn.focus();
+          break;
+        case "Shipping Address":
+          billingBtn.focus();
+      }
+    }
+  });
+}
+
 /*
 
 wrapperElement.addEventListener("focus", function checkFocus(event) {
