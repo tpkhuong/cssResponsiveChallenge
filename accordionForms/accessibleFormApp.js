@@ -65,14 +65,57 @@ function addFocus({ wrapperElement } = ourSelectors()) {
   });
 }
 
-focusUsingArrowKeys();
+/***** using keyword this *****/
+
+var { wrapperElement } = ourSelectors();
+
+focusUsingArrowKeys.call(wrapperElement);
+
+/***** using keyword this *****/
+
+/***** without using keyword this *****/
+
+// focusUsingArrowKeys()
+
+/***** without using keyword this *****/
 
 function focusUsingArrowKeys(
   { wrapperElement, arrOfBtnElement } = ourSelectors()
 ) {
   var convertToArrOfBtns = Array.from(arrOfBtnElement);
   var [personBtn, billingBtn, shippingBtn] = convertToArrOfBtns;
-  wrapperElement.addEventListener("keydown", function focusBtn(event) {
+  //   wrapperElement.addEventListener("keydown", function focusBtn(event) {
+  //     let currentElementParentTextArrowKeys =
+  //       event.target.parentElement.innerText;
+  //     if (event.key == "ArrowDown") {
+  //       //   console.log(event.target);
+  //       switch (currentElementParentTextArrowKeys) {
+  //         case "Personal Information":
+  //           billingBtn.focus();
+  //           break;
+  //         case "Billing Address":
+  //           shippingBtn.focus();
+  //           break;
+  //         case "Shipping Address":
+  //           personBtn.focus();
+  //       }
+  //     } else if (event.key == "ArrowUp") {
+  //       //   console.log(currentElementParentTextArrowKeys);
+  //       switch (currentElementParentTextArrowKeys) {
+  //         case "Personal Information":
+  //           shippingBtn.focus();
+  //           break;
+  //         case "Billing Address":
+  //           personBtn.focus();
+  //           break;
+  //         case "Shipping Address":
+  //           billingBtn.focus();
+  //       }
+  //     }
+  //   });
+  /***** using keyword this. the callback we pass into addeventlistener can be an arrow function because the wrapper element will be the keyword this binding for that function call *****/
+  this.addEventListener("keydown", function focusBtn(event) {
+    console.log(this);
     let currentElementParentTextArrowKeys =
       event.target.parentElement.innerText;
     if (event.key == "ArrowDown") {
@@ -101,6 +144,7 @@ function focusUsingArrowKeys(
       }
     }
   });
+  /***** using keyword this. the callback we pass into addeventlistener can be an arrow function because the wrapper element will be the keyword this binding for that function call *****/
 }
 
 /*
